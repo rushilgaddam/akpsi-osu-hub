@@ -40,16 +40,16 @@ function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-screen overflow-hidden bg-foreground text-background">
+    <section ref={ref} className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <motion.div style={{ y, opacity }} className="absolute inset-0">
         <img
           src={heroImg}
           alt="Ohio State University campus at dusk"
-          className="h-full w-full object-cover opacity-40"
+          className="h-full w-full object-cover opacity-30"
           width={1920}
           height={1280}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/60 to-foreground" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--scarlet-glow),_transparent_60%)]" />
       </motion.div>
 
