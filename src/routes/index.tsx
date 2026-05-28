@@ -190,14 +190,14 @@ const stats = [
 
 function Stats() {
   return (
-    <section className="relative bg-foreground text-background overflow-hidden">
+    <section className="relative bg-muted/30 text-foreground overflow-hidden border-y border-border">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_var(--scarlet-glow),_transparent_50%)]" />
       <div className="container-page py-24 relative">
         <Stagger className="grid gap-10 md:grid-cols-4">
           {stats.map((s) => (
-            <motion.div key={s.label} variants={itemVariants} className="border-l border-background/15 pl-5">
+            <motion.div key={s.label} variants={itemVariants} className="border-l border-foreground/10 pl-5">
               <div className="font-display text-6xl md:text-7xl text-primary">{s.num}</div>
-              <div className="mt-2 text-xs uppercase tracking-[0.2em] text-background/60">{s.label}</div>
+              <div className="mt-2 text-xs uppercase tracking-[0.2em] text-foreground/50">{s.label}</div>
             </motion.div>
           ))}
         </Stagger>
