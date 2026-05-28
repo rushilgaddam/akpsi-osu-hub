@@ -257,14 +257,14 @@ function CTA() {
   return (
     <section className="container-page pb-24">
       <Reveal>
-        <div className="relative rounded-3xl bg-foreground text-background p-12 md:p-20 overflow-hidden grain">
-          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/30 blur-3xl" />
+        <div className="relative rounded-3xl bg-card border border-border text-foreground p-12 md:p-20 overflow-hidden grain">
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/20 blur-3xl" />
           <div className="relative max-w-3xl">
             <SectionLabel>Recruitment is open</SectionLabel>
             <h2 className="mt-4 font-display text-5xl md:text-7xl text-balance leading-[1]">
               Your next four years <span className="italic text-primary">start here.</span>
             </h2>
-            <p className="mt-6 text-background/70 text-lg max-w-xl">
+            <p className="mt-6 text-foreground/60 text-lg max-w-xl">
               Rush week kicks off in January. Come meet the brothers, ask
               real questions, and see what Beta Iota is about.
             </p>
