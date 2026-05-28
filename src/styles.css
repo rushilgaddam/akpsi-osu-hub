@@ -190,7 +190,22 @@
   }
 
   .marquee {
-    animation: marquee 40s linear infinite;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    animation: marquee 45s linear infinite;
+    will-change: transform;
+  }
+
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .marquee span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
   }
 
   @keyframes marquee {

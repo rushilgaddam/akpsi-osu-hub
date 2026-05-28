@@ -11,7 +11,7 @@ export function Footer() {
               Brotherhood. Professionalism. Service.
             </div>
             <p className="mt-4 text-sm text-muted-foreground max-w-sm">
-              Alpha Kappa Psi · Beta Iota Chapter at The Ohio State University.
+              Alpha Kappa Psi · Mu Chapter at The Ohio State University.
               Founded 1922.
             </p>
           </div>
@@ -55,7 +55,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 pt-6 border-t border-border flex flex-col md:flex-row justify-between gap-2 text-xs text-muted-foreground">
-          <span>© {new Date().getFullYear()} Alpha Kappa Psi, Beta Iota Chapter.</span>
+          <span>© {new Date().getFullYear()} Alpha Kappa Psi, Mu Chapter.</span>
           <span>Not officially affiliated with The Ohio State University.</span>
         </div>
       </div>

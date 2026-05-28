@@ -13,7 +13,7 @@ export const Route = createFileRoute("/brothers")({
   head: () => ({
     meta: [
       { title: "Brothers · Alpha Kappa Psi Ohio State" },
-      { name: "description", content: "Meet the active brothers of Beta Iota Chapter — search by major, year, industry, and leadership role." },
+      { name: "description", content: "Meet the active brothers of Mu Chapter — search by major, year, industry, and leadership role." },
       { property: "og:title", content: "Brothers · AKPsi Ohio State" },
       { property: "og:description", content: "120+ active brothers driving careers across banking, consulting, tech, and more." },
     ],

@@ -12,7 +12,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact · Alpha Kappa Psi Ohio State" },
-      { name: "description", content: "Get in touch with the Beta Iota Chapter of Alpha Kappa Psi at The Ohio State University." },
+      { name: "description", content: "Get in touch with the Mu Chapter of Alpha Kappa Psi at The Ohio State University." },
       { property: "og:title", content: "Contact · AKPsi Ohio State" },
       { property: "og:description", content: "Questions about rush, alumni partnerships, or philanthropy? Reach out." },
     ],
@@ -64,7 +64,7 @@ function Contact() {
             <InfoBlock Icon={Mail} label="Email" value="akpsi.osu@gmail.com" href="mailto:akpsi.osu@gmail.com" />
             <InfoBlock Icon={MapPin} label="Address" value="Max M. Fisher College of Business · 2100 Neil Ave · Columbus, OH 43210" />
             <InfoBlock Icon={Instagram} label="Instagram" value="@akpsi.osu" href="https://instagram.com" />
-            <InfoBlock Icon={Linkedin} label="LinkedIn" value="AKPsi Beta Iota" href="https://linkedin.com" />
+            <InfoBlock Icon={Linkedin} label="LinkedIn" value="AKPsi Mu Chapter" href="https://linkedin.com" />
 
             <div className="pt-8 border-t border-border">
               <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">Specific inquiries</div>
