@@ -70,7 +70,7 @@ function Countdown() {
 
 function Hero() {
   return (
-    <section className="relative pt-40 pb-24 bg-foreground text-background overflow-hidden">
+    <section className="relative pt-40 pb-24 bg-background text-foreground overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,_var(--scarlet-glow),_transparent_50%)]" />
       <div className="container-page relative">
         <Reveal>
@@ -78,14 +78,14 @@ function Hero() {
           <h1 className="mt-4 font-display text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-balance max-w-5xl">
             Rush AKPsi <span className="italic text-primary">Beta Iota.</span>
           </h1>
-          <p className="mt-6 text-lg text-background/70 max-w-xl">
+          <p className="mt-6 text-lg text-foreground/70 max-w-xl">
             One week. Five events. The most welcoming, professional, and high-energy rush
             on campus. No business experience required.
           </p>
 
           <div className="mt-10 flex flex-col md:flex-row md:items-end gap-6">
             <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-background/60 mb-3">Recruitment begins</div>
+              <div className="text-xs uppercase tracking-[0.2em] text-foreground/50 mb-3">Recruitment begins</div>
               <Countdown />
             </div>
             <Button asChild size="lg" className="rounded-full bg-primary hover:bg-primary/90 self-start h-12 px-7">
@@ -134,25 +134,25 @@ const timeline = [
 
 function Timeline() {
   return (
-    <section className="bg-foreground text-background py-32">
+    <section className="bg-muted/30 text-foreground py-32 border-y border-border">
       <div className="container-page">
         <Reveal>
           <SectionLabel>Rush Timeline</SectionLabel>
           <h2 className="mt-4 font-display text-5xl md:text-6xl">Five rounds. <span className="italic text-primary">One week.</span></h2>
         </Reveal>
-        <Stagger className="mt-16 grid gap-px bg-background/10 rounded-2xl overflow-hidden">
+        <Stagger className="mt-16 grid gap-px bg-border rounded-2xl overflow-hidden border border-border">
           {timeline.map((t, i) => (
             <motion.div
               key={t.phase}
               variants={itemVariants}
-              className="bg-foreground p-8 grid md:grid-cols-[140px_1fr] gap-4 hover:bg-background/5 transition-colors"
+              className="bg-card p-8 grid md:grid-cols-[140px_1fr] gap-4 hover:bg-muted/50 transition-colors"
             >
               <div className="font-mono text-xs uppercase tracking-wider text-primary pt-2">{t.phase}</div>
               <div>
                 <div className="font-display text-3xl">{t.title}</div>
-                <div className="mt-2 text-background/70 leading-relaxed max-w-xl">{t.text}</div>
+                <div className="mt-2 text-foreground/70 leading-relaxed max-w-xl">{t.text}</div>
               </div>
-              <div className="md:col-start-2 text-xs text-background/40 font-mono">Day {i + 1}</div>
+              <div className="md:col-start-2 text-xs text-foreground/40 font-mono">Day {i + 1}</div>
             </motion.div>
           ))}
         </Stagger>
@@ -253,8 +253,8 @@ function Interest() {
   return (
     <section id="interest" className="container-page pb-32">
       <Reveal>
-        <div className="relative rounded-3xl bg-foreground text-background p-10 md:p-16 grain overflow-hidden">
-          <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-primary/30 blur-3xl" />
+        <div className="relative rounded-3xl bg-card border border-border text-foreground p-10 md:p-16 grain overflow-hidden">
+          <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-primary/20 blur-3xl" />
           <div className="relative grid lg:grid-cols-2 gap-12">
             <div>
               <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-primary">
@@ -263,21 +263,21 @@ function Interest() {
               <h2 className="mt-4 font-display text-5xl md:text-6xl leading-[1.05] text-balance">
                 Get on the <span className="italic text-primary">list.</span>
               </h2>
-              <p className="mt-4 text-background/70 max-w-md">
+              <p className="mt-4 text-foreground/60 max-w-md">
                 Drop your info and we'll send you rush schedules, locations, and personal invites from the recruitment team.
               </p>
             </div>
             <form onSubmit={onSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-3">
-                <Input required name="firstName" placeholder="First name" className="bg-background/10 border-background/15 text-background placeholder:text-background/40 h-12 rounded-xl" />
-                <Input required name="lastName" placeholder="Last name" className="bg-background/10 border-background/15 text-background placeholder:text-background/40 h-12 rounded-xl" />
+                <Input required name="firstName" placeholder="First name" className="bg-muted/50 border-border/60 text-foreground placeholder:text-muted-foreground h-12 rounded-xl" />
+                <Input required name="lastName" placeholder="Last name" className="bg-muted/50 border-border/60 text-foreground placeholder:text-muted-foreground h-12 rounded-xl" />
               </div>
-              <Input required type="email" name="email" placeholder="OSU email" className="bg-background/10 border-background/15 text-background placeholder:text-background/40 h-12 rounded-xl" />
+              <Input required type="email" name="email" placeholder="OSU email" className="bg-muted/50 border-border/60 text-foreground placeholder:text-muted-foreground h-12 rounded-xl" />
               <div className="grid sm:grid-cols-2 gap-3">
-                <Input name="major" placeholder="Major" className="bg-background/10 border-background/15 text-background placeholder:text-background/40 h-12 rounded-xl" />
-                <Input name="year" placeholder="Year (Fr / So / Jr / Sr)" className="bg-background/10 border-background/15 text-background placeholder:text-background/40 h-12 rounded-xl" />
+                <Input name="major" placeholder="Major" className="bg-muted/50 border-border/60 text-foreground placeholder:text-muted-foreground h-12 rounded-xl" />
+                <Input name="year" placeholder="Year (Fr / So / Jr / Sr)" className="bg-muted/50 border-border/60 text-foreground placeholder:text-muted-foreground h-12 rounded-xl" />
               </div>
-              <Textarea name="why" placeholder="Why AKPsi? (optional)" rows={3} className="bg-background/10 border-background/15 text-background placeholder:text-background/40 rounded-xl" />
+              <Textarea name="why" placeholder="Why AKPsi? (optional)" rows={3} className="bg-muted/50 border-border/60 text-foreground placeholder:text-muted-foreground rounded-xl" />
               <Button disabled={submitting} type="submit" className="w-full sm:w-auto rounded-full bg-primary hover:bg-primary/90 h-12 px-7">
                 {submitting ? "Submitting…" : "Submit Interest"} <ArrowRight size={16} className="ml-1" />
               </Button>

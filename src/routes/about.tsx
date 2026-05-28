@@ -63,11 +63,11 @@ function About() {
         </Reveal>
       </section>
 
-      <section className="bg-foreground text-background py-32">
+      <section className="bg-muted/30 text-foreground py-32 border-y border-border">
         <div className="container-page">
           <Reveal>
             <SectionLabel>Timeline</SectionLabel>
-            <h2 className="mt-4 font-display text-5xl md:text-6xl text-background">A century in scarlet.</h2>
+            <h2 className="mt-4 font-display text-5xl md:text-6xl">A century in scarlet.</h2>
           </Reveal>
           <Stagger className="mt-16 space-y-6 max-w-3xl">
             {[
@@ -81,10 +81,10 @@ function About() {
               <motion.div
                 key={t.year}
                 variants={itemVariants}
-                className="flex gap-8 border-b border-background/10 pb-6"
+                className="flex gap-8 border-b border-foreground/10 pb-6"
               >
                 <div className="font-display text-3xl text-primary w-28 shrink-0">{t.year}</div>
-                <div className="text-background/80 text-lg leading-relaxed pt-1">{t.text}</div>
+                <div className="text-foreground/80 text-lg leading-relaxed pt-1">{t.text}</div>
               </motion.div>
             ))}
           </Stagger>
