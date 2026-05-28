@@ -59,9 +59,9 @@ function Countdown() {
   return (
     <div className="flex gap-3 md:gap-4">
       {cells.map((c) => (
-        <div key={c.l} className="flex flex-col items-center bg-background/10 backdrop-blur rounded-xl px-4 py-3 min-w-[68px]">
+        <div key={c.l} className="flex flex-col items-center bg-muted/60 backdrop-blur rounded-xl px-4 py-3 min-w-[68px]">
           <div className="font-display text-3xl md:text-4xl text-primary tabular-nums">{String(c.v).padStart(2, "0")}</div>
-          <div className="text-[10px] uppercase tracking-wider text-background/60 mt-1">{c.l}</div>
+          <div className="text-[10px] uppercase tracking-wider text-foreground/50 mt-1">{c.l}</div>
         </div>
       ))}
     </div>
