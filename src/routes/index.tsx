@@ -78,7 +78,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-8 max-w-xl text-lg text-background/70"
+          className="mt-8 max-w-xl text-lg text-foreground/70"
         >
           The nation's oldest and largest co-ed professional business fraternity —
           shaping principled business leaders through brotherhood, professionalism, and service.
@@ -96,10 +96,10 @@ function Hero() {
               <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform" size={18} />
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="rounded-full border-background/20 bg-transparent text-background hover:bg-background hover:text-foreground text-base px-7 h-12">
+          <Button asChild size="lg" variant="outline" className="rounded-full border-foreground/20 bg-transparent text-foreground hover:bg-foreground hover:text-background text-base px-7 h-12">
             <Link to="/brothers">Meet the Brothers</Link>
           </Button>
-          <Button asChild size="lg" variant="ghost" className="rounded-full text-background hover:bg-background/10 text-base px-7 h-12">
+          <Button asChild size="lg" variant="ghost" className="rounded-full text-foreground hover:bg-foreground/10 text-base px-7 h-12">
             <Link to="/about">Learn More</Link>
           </Button>
         </motion.div>
@@ -108,13 +108,13 @@ function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] text-background/50 flex flex-col items-center gap-2"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] text-foreground/50 flex flex-col items-center gap-2"
         >
           Scroll
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.8, repeat: Infinity }}
-            className="w-px h-8 bg-background/30"
+            className="w-px h-8 bg-foreground/30"
           />
         </motion.div>
       </div>
