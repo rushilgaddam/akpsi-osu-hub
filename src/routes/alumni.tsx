@@ -63,20 +63,20 @@ function Alumni() {
         </Stagger>
       </section>
 
-      <section className="bg-foreground text-background py-24 overflow-hidden">
+      <section className="bg-muted/30 text-foreground py-24 overflow-hidden border-y border-border">
         <div className="container-page mb-10">
           <Reveal>
             <SectionLabel>Where they work</SectionLabel>
             <h2 className="mt-4 font-display text-4xl md:text-5xl">A few of the firms.</h2>
           </Reveal>
         </div>
-        <Stagger className="container-page grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-px bg-background/10 rounded-2xl overflow-hidden">
+        <Stagger className="container-page grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-px bg-border rounded-2xl overflow-hidden border border-border">
           {companies.map((c) => (
             <motion.div
               key={c}
               variants={itemVariants}
               whileHover={{ scale: 1.05, color: "var(--scarlet)" }}
-              className="bg-foreground p-6 flex items-center justify-center text-center font-display text-lg text-background/70 hover:text-primary transition-colors"
+              className="bg-card p-6 flex items-center justify-center text-center font-display text-lg text-foreground/60 hover:text-primary transition-colors"
             >
               {c}
             </motion.div>

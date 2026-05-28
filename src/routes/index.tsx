@@ -40,16 +40,16 @@ function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-screen overflow-hidden bg-foreground text-background">
+    <section ref={ref} className="relative min-h-screen overflow-hidden bg-background text-foreground">
       <motion.div style={{ y, opacity }} className="absolute inset-0">
         <img
           src={heroImg}
           alt="Ohio State University campus at dusk"
-          className="h-full w-full object-cover opacity-40"
+          className="h-full w-full object-cover opacity-30"
           width={1920}
           height={1280}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/60 to-foreground" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--scarlet-glow),_transparent_60%)]" />
       </motion.div>
 
@@ -78,7 +78,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-8 max-w-xl text-lg text-background/70"
+          className="mt-8 max-w-xl text-lg text-foreground/70"
         >
           The nation's oldest and largest co-ed professional business fraternity —
           shaping principled business leaders through brotherhood, professionalism, and service.
@@ -96,10 +96,10 @@ function Hero() {
               <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform" size={18} />
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="rounded-full border-background/20 bg-transparent text-background hover:bg-background hover:text-foreground text-base px-7 h-12">
+          <Button asChild size="lg" variant="outline" className="rounded-full border-foreground/20 bg-transparent text-foreground hover:bg-foreground hover:text-background text-base px-7 h-12">
             <Link to="/brothers">Meet the Brothers</Link>
           </Button>
-          <Button asChild size="lg" variant="ghost" className="rounded-full text-background hover:bg-background/10 text-base px-7 h-12">
+          <Button asChild size="lg" variant="ghost" className="rounded-full text-foreground hover:bg-foreground/10 text-base px-7 h-12">
             <Link to="/about">Learn More</Link>
           </Button>
         </motion.div>
@@ -108,13 +108,13 @@ function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] text-background/50 flex flex-col items-center gap-2"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] text-foreground/50 flex flex-col items-center gap-2"
         >
           Scroll
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.8, repeat: Infinity }}
-            className="w-px h-8 bg-background/30"
+            className="w-px h-8 bg-foreground/30"
           />
         </motion.div>
       </div>
@@ -190,14 +190,14 @@ const stats = [
 
 function Stats() {
   return (
-    <section className="relative bg-foreground text-background overflow-hidden">
+    <section className="relative bg-muted/30 text-foreground overflow-hidden border-y border-border">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_var(--scarlet-glow),_transparent_50%)]" />
       <div className="container-page py-24 relative">
         <Stagger className="grid gap-10 md:grid-cols-4">
           {stats.map((s) => (
-            <motion.div key={s.label} variants={itemVariants} className="border-l border-background/15 pl-5">
+            <motion.div key={s.label} variants={itemVariants} className="border-l border-foreground/10 pl-5">
               <div className="font-display text-6xl md:text-7xl text-primary">{s.num}</div>
-              <div className="mt-2 text-xs uppercase tracking-[0.2em] text-background/60">{s.label}</div>
+              <div className="mt-2 text-xs uppercase tracking-[0.2em] text-foreground/50">{s.label}</div>
             </motion.div>
           ))}
         </Stagger>
@@ -257,14 +257,14 @@ function CTA() {
   return (
     <section className="container-page pb-24">
       <Reveal>
-        <div className="relative rounded-3xl bg-foreground text-background p-12 md:p-20 overflow-hidden grain">
-          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/30 blur-3xl" />
+        <div className="relative rounded-3xl bg-card border border-border text-foreground p-12 md:p-20 overflow-hidden grain">
+          <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/20 blur-3xl" />
           <div className="relative max-w-3xl">
             <SectionLabel>Recruitment is open</SectionLabel>
             <h2 className="mt-4 font-display text-5xl md:text-7xl text-balance leading-[1]">
               Your next four years <span className="italic text-primary">start here.</span>
             </h2>
-            <p className="mt-6 text-background/70 text-lg max-w-xl">
+            <p className="mt-6 text-foreground/60 text-lg max-w-xl">
               Rush week kicks off in January. Come meet the brothers, ask
               real questions, and see what Beta Iota is about.
             </p>
