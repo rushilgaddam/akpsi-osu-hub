@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RecruitmentRouteImport } from './routes/recruitment'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BrothersRouteImport } from './routes/brothers'
@@ -26,6 +27,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const RecruitmentRoute = RecruitmentRouteImport.update({
   id: '/recruitment',
   path: '/recruitment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsRoute = EventsRouteImport.update({
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/brothers': typeof BrothersRoute
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
+  '/faq': typeof FaqRoute
   '/recruitment': typeof RecruitmentRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/brothers': typeof BrothersRoute
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
+  '/faq': typeof FaqRoute
   '/recruitment': typeof RecruitmentRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/brothers': typeof BrothersRoute
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
+  '/faq': typeof FaqRoute
   '/recruitment': typeof RecruitmentRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/brothers'
     | '/contact'
     | '/events'
+    | '/faq'
     | '/recruitment'
     | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/brothers'
     | '/contact'
     | '/events'
+    | '/faq'
     | '/recruitment'
     | '/sitemap.xml'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/brothers'
     | '/contact'
     | '/events'
+    | '/faq'
     | '/recruitment'
     | '/sitemap.xml'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   BrothersRoute: typeof BrothersRoute
   ContactRoute: typeof ContactRoute
   EventsRoute: typeof EventsRoute
+  FaqRoute: typeof FaqRoute
   RecruitmentRoute: typeof RecruitmentRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/recruitment'
       fullPath: '/recruitment'
       preLoaderRoute: typeof RecruitmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events': {
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   BrothersRoute: BrothersRoute,
   ContactRoute: ContactRoute,
   EventsRoute: EventsRoute,
+  FaqRoute: FaqRoute,
   RecruitmentRoute: RecruitmentRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
