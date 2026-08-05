@@ -26,7 +26,7 @@ function Contact() {
     e.preventDefault();
     setSubmitting(true);
     setTimeout(() => {
-      toast.success("Message sent — we'll get back to you within 48 hours.");
+      toast.success("Message sent. We will get back to you within 48 hours.");
       (e.target as HTMLFormElement).reset();
       setSubmitting(false);
     }, 800);
@@ -40,7 +40,7 @@ function Contact() {
           Let's <span className="italic text-primary">talk.</span>
         </h1>
         <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-          Whether you're a prospective brother, an alum, a recruiter, or a Columbus nonprofit — we'd love to hear from you.
+          Whether you're a prospective brother, an alum, a recruiter, or a Columbus nonprofit, we'd love to hear from you.
         </p>
       </Reveal>
 

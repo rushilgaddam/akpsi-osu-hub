@@ -14,11 +14,11 @@ const categories = [
       },
       {
         q: "Is AKPsi a social fraternity?",
-        a: "No. AKPsi is a co-ed professional fraternity — our focus is career development, leadership, and brotherhood. We have no affiliation with Greek housing or social sorority/fraternity systems.",
+        a: "No. AKPsi is a co-ed professional fraternity. Our focus is career development, leadership, and brotherhood, and we are not affiliated with Greek housing or social sorority and fraternity systems.",
       },
       {
         q: "Who can join?",
-        a: "Any OSU student regardless of major, year, or background. We have members from engineering, nursing, arts, and everything in between. We look for drive, character, and fit — not just a business degree.",
+        a: "Any OSU student can join, regardless of major, year, or background. New members are expected to stay involved for at least two years, including about 1.5 years as active members and the first half-year as an early member.",
       },
       {
         q: "What makes Mu Chapter different?",
@@ -27,28 +27,28 @@ const categories = [
     ],
   },
   {
-    id: "rush",
-    label: "Rush",
+    id: "recruitment",
+    label: "Recruitment",
     questions: [
       {
-        q: "When is rush?",
-        a: "We hold recruitment once per semester. Winter 2026 rush runs January 7–25. Keep an eye on our Instagram and this site for exact event dates.",
+        q: "When is recruitment?",
+        a: "Recruitment happens at the beginning of each semester. Specific dates are posted on our social media and on this site.",
       },
       {
-        q: "What happens during rush week?",
-        a: "Rush week includes a mix of professional events, social mixers, and one-on-one coffee chats with current brothers. It's designed so you get a real feel for who we are — not just a sales pitch.",
+        q: "What happens during recruitment?",
+        a: "The process usually includes a mix of professional events, social mixers, and conversations with current brothers. It gives you a feel for who we are and whether the chapter feels like a fit.",
       },
       {
         q: "How competitive is the application process?",
-        a: "We are selective, but we evaluate candidates holistically. GPA matters less than curiosity, ambition, and how you carry yourself. Show up with genuine interest and you'll be noticed.",
+        a: "We are selective, but we look at each person as a whole. GPA matters less than curiosity, ambition, and how you carry yourself. Showing up with genuine interest usually makes a real difference.",
       },
       {
-        q: "Can I rush if I'm a freshman?",
-        a: "Yes. Freshmen are welcome and make up a meaningful portion of every pledge class. It's never too early.",
+        q: "Can I participate if I'm a freshman?",
+        a: "Absolutely. Freshmen are welcome and make up a meaningful part of the chapter each year.",
       },
       {
-        q: "What if I miss a rush event?",
-        a: "Attending as many events as possible strengthens your application, but missing one isn't disqualifying. Reach out to us directly and we'll make sure you're not left out.",
+        q: "What if I miss an event?",
+        a: "Missing one event does not automatically hurt your application. If you cannot make it, reach out to us and we will help you stay in the loop.",
       },
     ],
   },
@@ -58,11 +58,11 @@ const categories = [
     questions: [
       {
         q: "What does membership actually involve?",
-        a: "After pledging, you become an active brother. That means attending chapter meetings, participating in events, contributing to a committee, and showing up for the people around you. Most brothers spend 5–8 hours per week on chapter activities.",
+        a: "After the early member period, you become an active brother. That means going to chapter meetings, taking part in events, helping out with a committee, and being present for the people around you. Most brothers spend about two to four hours each week on chapter activities.",
       },
       {
         q: "What are dues?",
-        a: "Dues cover national membership fees, chapter operations, and events. The exact amount varies by semester. We're transparent about costs upfront and offer payment plans for those who need flexibility — no one is priced out.",
+        a: "Dues cover national membership fees, chapter operations, and events. The exact amount changes by semester. We are upfront about costs and we can work with people who need payment flexibility.",
       },
       {
         q: "Can I be in other clubs or organizations?",
@@ -70,7 +70,7 @@ const categories = [
       },
       {
         q: "What is the pledge process like?",
-        a: "The pledge process is structured around professional development, brotherhood activities, and learning the history and values of AKPsi. It's challenging in the right ways — you'll grow, and you'll do it with a cohort going through it alongside you.",
+        a: "The pledge process is built around professional development, brotherhood, and learning the history and values of AKPsi. It is challenging in a good way, and you go through it with a group that grows together.",
       },
       {
         q: "Is hazing involved?",
@@ -96,7 +96,7 @@ const categories = [
       },
       {
         q: "Does the network stay active after graduation?",
-        a: "Yes — that's one of AKPsi's real differentiators. Our alumni stay engaged. The fraternity genuinely is lifelong, not just a college thing.",
+        a: "Yes. That is one of the biggest things that makes AKPsi special. Our alumni stay engaged, and the fraternity really does continue beyond college.",
       },
     ],
   },
@@ -106,7 +106,7 @@ const categories = [
     questions: [
       {
         q: "What does 'brotherhood' actually mean here?",
-        a: "It means the people you meet will become close friends — not just professional contacts. Brothers become roommates, travel together, support each other through hard semesters, and stay close after graduation.",
+        a: "It means the people you meet become close friends, not just professional contacts. Brothers become roommates, travel together, support each other through hard semesters, and stay close after graduation.",
       },
       {
         q: "What social events does the chapter run?",
@@ -114,7 +114,7 @@ const categories = [
       },
       {
         q: "How diverse is the chapter?",
-        a: "Diversity — of major, background, identity, and perspective — is something we actively cultivate. Brothers come from 10+ majors and a wide range of personal experiences.",
+        a: "Diversity matters to us, and it shows up in major, background, identity, and perspective. Brothers come from more than 10 majors and a wide range of personal experiences.",
       },
     ],
   },
@@ -219,7 +219,7 @@ function FAQ() {
               <span className="italic text-primary">answered.</span>
             </h1>
             <p className="mt-6 text-base text-foreground/65 leading-relaxed max-w-lg">
-              Everything you want to know about AKPsi — rush, membership, dues, the network, and what brotherhood actually looks like day to day.
+              Everything you want to know about AKPsi, from recruitment and membership to dues, the network, and what brotherhood actually looks like day to day.
             </p>
           </Reveal>
         </div>

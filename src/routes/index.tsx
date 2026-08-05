@@ -11,7 +11,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Mu Chapter of Alpha Kappa Psi — premier co-ed professional business fraternity at The Ohio State University.",
+          "Mu Chapter of Alpha Kappa Psi is a premier co-ed professional business fraternity at The Ohio State University.",
       },
       { property: "og:title", content: "Alpha Kappa Psi · Ohio State" },
       {
@@ -77,15 +77,15 @@ function Home() {
           } as React.CSSProperties
         }
       >
-        <div className="absolute inset-0 bg-[#100407]" />
+        <div className="absolute inset-0 bg-[#111111]" />
 
-        <div className="absolute -left-[20%] top-[-5%] h-[70rem] w-[70rem] rounded-full bg-[#bb1237]/95 blur-[75px] animate-blob-one" />
-        <div className="absolute right-[-25%] top-[8%] h-[65rem] w-[65rem] rounded-full bg-[#8c1028]/95 blur-[80px] animate-blob-two" />
-        <div className="absolute left-[18%] bottom-[-28%] h-[75rem] w-[75rem] rounded-full bg-[#d7b86a]/75 blur-[85px] animate-blob-three" />
-        <div className="absolute left-[48%] top-[26%] h-[52rem] w-[52rem] rounded-full bg-[#f4e3b2]/45 blur-[75px] animate-blob-four" />
-        <div className="absolute left-[5%] bottom-[8%] h-[45rem] w-[45rem] rounded-full bg-[#5c0b18]/90 blur-[75px] animate-blob-five" />
+        <div className="absolute -left-[20%] top-[-5%] h-[70rem] w-[70rem] rounded-full bg-[#b11f3d]/95 blur-[75px] animate-blob-one" />
+        <div className="absolute right-[-25%] top-[8%] h-[65rem] w-[65rem] rounded-full bg-[#7a0f24]/95 blur-[80px] animate-blob-two" />
+        <div className="absolute left-[18%] bottom-[-28%] h-[75rem] w-[75rem] rounded-full bg-[#8d8d8d]/70 blur-[85px] animate-blob-three" />
+        <div className="absolute left-[48%] top-[26%] h-[52rem] w-[52rem] rounded-full bg-[#dcdcdc]/40 blur-[75px] animate-blob-four" />
+        <div className="absolute left-[5%] bottom-[8%] h-[45rem] w-[45rem] rounded-full bg-[#2a2a2a]/90 blur-[75px] animate-blob-five" />
 
-        <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(circle_28rem_at_var(--glow-x)_var(--glow-y),rgba(255,255,255,0.58),rgba(255,215,150,0.32)_18%,rgba(255,45,90,0.22)_36%,transparent_62%)] transition-[background] duration-75" />
+        <div className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(circle_28rem_at_var(--glow-x)_var(--glow-y),rgba(255,255,255,0.58),rgba(180,180,180,0.25)_18%,rgba(177,31,61,0.22)_36%,transparent_62%)] transition-[background] duration-75" />
 
         <div
           className="pointer-events-none absolute inset-0 z-[1] transition-transform duration-150 ease-out"
@@ -114,7 +114,7 @@ function Home() {
             to="/recruitment"
             className="mt-6 rounded-full border border-white/55 px-8 py-2 text-sm font-bold uppercase tracking-wide backdrop-blur-md transition hover:bg-white/15"
           >
-            Winter &apos;26 Application
+            Recruitment Application
           </Link>
 
           <p className="mt-44 text-lg font-semibold text-white/95 md:text-xl">
@@ -192,7 +192,7 @@ function Home() {
                 Our Members
               </Link>
               <Link to="/recruitment" className="font-medium text-foreground hover:underline">
-                Rush
+                Recruitment
               </Link>
             </div>
           </div>
@@ -223,9 +223,9 @@ function Home() {
           <div className="grid gap-4 md:grid-cols-2">
             {[
               { q: "Do I need to be a business major?",  a: "No. We welcome students from every college at OSU. What matters is ambition, character, and fit." },
-              { q: "Is AKPsi a social fraternity?",      a: "No — we're a co-ed professional fraternity. Our focus is career development, leadership, and brotherhood." },
-              { q: "How much time does it take?",        a: "Rush is one week. Active membership averages 5–8 hours per week." },
-              { q: "Does the network stay active?",      a: "Yes. Our alumni stay engaged long after graduation — it's one of AKPsi's real differentiators." },
+              { q: "Is AKPsi a social fraternity?",      a: "No. We are a co-ed professional fraternity focused on career development, leadership, and brotherhood." },
+              { q: "How much time does it take?",        a: "Recruitment usually lasts about two weeks. Active membership usually takes around two to four hours each week." },
+              { q: "Does the network stay active?",      a: "Yes. Our alumni stay engaged long after graduation, and that network really does last." },
             ].map((item, i) => (
               <Reveal key={item.q}>
                 <div className="home-faq-card rounded-2xl border border-border bg-card p-6 h-full" style={{ animationDelay: `${i * 0.07}s` }}>

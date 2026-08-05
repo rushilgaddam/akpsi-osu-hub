@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
@@ -7,56 +7,31 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const schedule = [
-  { date: "January 7",  title: "Applications open",  detail: "Applications for Winter 2026 are live." },
-  { date: "January 13", title: "Winterfest",          detail: "Meet the brothers and learn more about rush." },
-  { date: "January 14", title: "Mass meeting",        detail: "Hear from the EBoard and walk through membership." },
-  { date: "January 23", title: "Coffee chats",        detail: "Informal conversations with brothers across majors." },
-  { date: "January 24", title: "DEI event",           detail: "Learn how we cultivate an inclusive chapter." },
-  { date: "January 25", title: "Applications due",    detail: "Submit by 11:59 PM to be considered." },
+  { title: "Applications open", detail: "Recruitment begins at the start of the semester and applications open shortly after." },
+  { title: "Meet the brothers", detail: "Learn more about the chapter through a mix of professional and social events." },
+  { title: "Member conversations", detail: "Spend time with brothers across majors and get to know the chapter more personally." },
+  { title: "Applications due", detail: "Submit your application before recruitment wraps up for the semester." },
 ];
 
 const faqs = [
-  { q: "Do I need to be a business major?",    a: "No. We welcome students from every college at OSU. What matters is ambition, character, and fit." },
-  { q: "How much time does rush take?",        a: "Rush events are spread over one week. Active membership averages 5–8 hours per week." },
-  { q: "What does it cost?",                   a: "Dues cover national fees, chapter operations, and events. Payment support is available if needed." },
+  { q: "Do I need to be a business major?", a: "No. We welcome students from every college at OSU. What matters is ambition, character, and fit." },
+  { q: "How much time does recruitment take?", a: "Recruitment usually lasts about two weeks. Active membership usually takes around two to four hours each week." },
+  { q: "What does it cost?", a: "Dues cover national fees, chapter operations, and events. Payment support is available if needed." },
   { q: "Can I belong to other organizations?", a: "Yes. Many brothers are also in clubs, academic programs, and athletics. AKPsi works alongside other commitments." },
-  { q: "How do I apply?",                      a: "Fill out the interest form on this page and we will send rush details to your email." },
+  { q: "How do I apply?", a: "Fill out the interest form on this page and we will send recruitment updates to your email." },
 ];
-
-const DEADLINE = new Date("2026-01-25T23:59:00");
-
-function useCountdown(target: Date) {
-  const calc = () => {
-    const diff = target.getTime() - Date.now();
-    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, expired: true };
-    return {
-      days:    Math.floor(diff / 86400000),
-      hours:   Math.floor((diff % 86400000) / 3600000),
-      minutes: Math.floor((diff % 3600000)  / 60000),
-      seconds: Math.floor((diff % 60000)    / 1000),
-      expired: false,
-    };
-  };
-  const [t, setT] = useState(calc);
-  useEffect(() => {
-    const id = setInterval(() => setT(calc()), 1000);
-    return () => clearInterval(id);
-  }, []);
-  return t;
-}
 
 export const Route = createFileRoute("/recruitment")({
   head: () => ({
     meta: [
-      { title: "Rush · Alpha Kappa Psi Ohio State" },
-      { name: "description", content: "Winter 2026 recruitment for the Mu Chapter of Alpha Kappa Psi at OSU." },
+      { title: "Recruitment · Alpha Kappa Psi Ohio State" },
+      { name: "description", content: "Recruitment information for the Mu Chapter of Alpha Kappa Psi at Ohio State." },
     ],
   }),
   component: Recruitment,
 });
 
 export function Recruitment() {
-  const { days, hours, minutes, seconds, expired } = useCountdown(DEADLINE);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -73,7 +48,7 @@ export function Recruitment() {
         className="relative flex flex-col items-center justify-center text-center overflow-hidden"
         style={{ minHeight: "100svh", background: "#0c0304" }}
       >
-        {/* Slow breathing orb — single, centred, calm */}
+        {/* Slow breathing orb for the hero background */}
         <div className="rush-orb absolute rounded-full pointer-events-none" />
 
         {/* Content */}
@@ -84,7 +59,7 @@ export function Recruitment() {
             className="rush-fade-up rush-delay-0 text-[11px] font-semibold uppercase tracking-[0.35em]"
             style={{ color: "rgba(255,255,255,0.35)" }}
           >
-            Winter 2026 · Mu Chapter
+            Recruitment at Mu Chapter
           </span>
 
           {/* Headline */}
@@ -92,7 +67,7 @@ export function Recruitment() {
             className="rush-fade-up rush-delay-1 font-display leading-[0.9] tracking-tight text-white"
             style={{ fontSize: "clamp(4.5rem, 14vw, 11rem)" }}
           >
-            Rush<br />
+            Recruitment<br />
             <span style={{ color: "#c8a96e" }}>AKΨ.</span>
           </h1>
 
@@ -101,36 +76,9 @@ export function Recruitment() {
             className="rush-fade-up rush-delay-2 text-base leading-relaxed max-w-sm"
             style={{ color: "rgba(255,255,255,0.5)" }}
           >
-            One week. A lifetime of connections.<br />
-            Applications close January 25th.
+            Recruitment happens at the beginning of each semester.<br />
+            Specific dates are posted on our social media.
           </p>
-
-          {/* Countdown */}
-          {!expired && (
-            <div className="rush-fade-up rush-delay-3 flex items-end gap-6 md:gap-10">
-              {[
-                { val: days,    label: "Days" },
-                { val: hours,   label: "Hours" },
-                { val: minutes, label: "Min" },
-                { val: seconds, label: "Sec" },
-              ].map(({ val, label }, i) => (
-                <div key={label} className="flex flex-col items-center gap-1">
-                  <span
-                    className="font-display tabular-nums leading-none text-white"
-                    style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)" }}
-                  >
-                    {String(val).padStart(2, "0")}
-                  </span>
-                  <span
-                    className="text-[10px] uppercase tracking-[0.25em]"
-                    style={{ color: "rgba(255,255,255,0.3)" }}
-                  >
-                    {label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
 
           {/* CTAs */}
           <div className="rush-fade-up rush-delay-4 flex flex-wrap justify-center gap-3 mt-2">
@@ -164,12 +112,12 @@ export function Recruitment() {
               <SectionLabel>Interest form</SectionLabel>
               <h2 className="mt-4 text-3xl font-semibold">Get on the list.</h2>
               <p className="mt-4 text-base text-foreground/80 leading-relaxed">
-                This form is the main point of contact for rush updates. We strongly encourage all students
+                This form is the main point of contact for recruitment updates. We strongly encourage all students
                 interested in joining AKPsi to sign up.
               </p>
               <div className="mt-6 space-y-3 text-sm text-muted-foreground">
                 <p><strong>What you get:</strong></p>
-                <p>Rush schedules, event locations, application reminders, and recruitment updates.</p>
+                <p>Recruitment schedules, event locations, application reminders, and updates from the chapter.</p>
               </div>
             </div>
           </Reveal>
@@ -196,17 +144,16 @@ export function Recruitment() {
       {/* ── SCHEDULE ── */}
       <section id="schedule" className="bg-muted/30 py-24 border-t border-border">
         <div className="container-page">
-          <SectionLabel>Winter 2026 schedule</SectionLabel>
+          <SectionLabel>Recruitment timeline</SectionLabel>
           <div className="mt-10 space-y-4">
             {schedule.map((item, i) => (
-              <Reveal key={item.date}>
+              <Reveal key={item.title}>
                 <div className="rounded-3xl border border-border bg-card p-6 flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center">
                   <div className="flex items-center gap-5">
                     <span className="text-2xl font-bold tabular-nums text-primary" style={{ minWidth: 28 }}>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">{item.date}</div>
                       <div className="mt-1 text-xl font-semibold">{item.title}</div>
                     </div>
                   </div>
@@ -218,16 +165,45 @@ export function Recruitment() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
-      <section className="container-page py-24">
-        <SectionLabel>FAQ</SectionLabel>
-        <div className="mt-10 space-y-4">
-          {faqs.map((item, index) => (
-            <details key={index} className="rounded-3xl border border-border bg-card p-6">
-              <summary className="cursor-pointer text-lg font-semibold">{item.q}</summary>
-              <p className="mt-3 text-foreground/75 leading-relaxed">{item.a}</p>
-            </details>
-          ))}
+      {/* ── FAQ TEASER ── */}
+      <section className="border-t border-border bg-muted/20 py-24">
+        <div className="container-page">
+          <Reveal>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
+              <div>
+                <SectionLabel>FAQ</SectionLabel>
+                <h2 className="mt-4 font-display text-[clamp(2.4rem,5vw,4rem)] leading-[0.95]">
+                  Quick answers.
+                </h2>
+              </div>
+              <Link
+                to="/faq"
+                className="self-start lg:self-auto text-sm font-semibold text-primary hover:underline underline-offset-4 flex items-center gap-1.5 flex-shrink-0"
+              >
+                See all questions
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </Reveal>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {faqs.slice(0, 4).map((item, i) => (
+              <Reveal key={item.q}>
+                <div className="home-faq-card rounded-2xl border border-border bg-card p-6 h-full" style={{ animationDelay: `${i * 0.07}s` }}>
+                  <p className="font-semibold text-base mb-3">{item.q}</p>
+                  <p className="text-sm text-foreground/65 leading-relaxed">{item.a}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div className="mt-8 text-center">
+              <Link to="/faq" className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3 text-sm font-semibold text-foreground transition hover:bg-muted">
+                Read all questions →
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 

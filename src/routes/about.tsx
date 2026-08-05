@@ -12,12 +12,12 @@ import mainImg from "@/assets/akpsi5.jpg";
 const chapterPillars = [
   {
     title: "Brotherhood",
-    body: "We build real relationships across majors and graduation years — from socials to retreats to alumni mentorship. Brotherhood is how we keep each other accountable and connected.",
+    body: "We build real relationships across majors and graduation years through socials, retreats, and alumni mentorship. Brotherhood is how we keep each other accountable and connected.",
     image: brotherhoodImg,
   },
   {
     title: "Professionalism",
-    body: "Our chapter focuses on useful career preparation through speaker events, resume review, interview practice, and alumni guidance — not empty buzzwords.",
+    body: "Our chapter focuses on useful career preparation through speaker events, resume review, interview practice, and alumni guidance. We care about practical support, not empty buzzwords.",
     image: profImg,
   },
   {
@@ -383,7 +383,7 @@ function About() {
                   Alpha Kappa Psi is the oldest and most premier business fraternity on campus.
                   We are a co-ed organization with access to a large alumni network spanning top companies
                   and career paths across the globe. We are a chapter that prides itself on diversity and
-                  uniqueness — balancing professional development with genuine social bonds.
+                  uniqueness while balancing professional development with genuine social bonds.
                   The benefits of AKPsi don't stop after pledging or even graduation.
                 </p>
               </div>
@@ -466,7 +466,7 @@ function About() {
           </p>
         </div>
 
-        {/* Row 1 — left to right */}
+        {/* Row 1 from left to right */}
         <div className="mt-10 relative">
           <div
             className="marquee-track"
@@ -483,7 +483,7 @@ function About() {
           </div>
         </div>
 
-        {/* Row 2 — right to left (reversed list for variety) */}
+        {/* Row 2 from right to left for variety */}
         <div className="mt-3 relative">
           <div
             style={{
@@ -567,11 +567,11 @@ function About() {
           </div>
           <div className="mt-16 space-y-6 max-w-3xl">
             {[
-              { year: "1904", text: "Alpha Kappa Psi founded at NYU — the first professional business fraternity in the United States." },
+              { year: "1904", text: "Alpha Kappa Psi was founded at NYU and became the first professional business fraternity in the United States." },
               { year: "1922", text: "Mu Chapter chartered at The Ohio State University." },
               { year: "1976", text: "Chapter becomes co-educational, opening membership to all genders." },
               { year: "2010", text: "Mu Chapter recognized with the national Chapter of Excellence award." },
-              { year: "2022", text: "Centennial celebration — 100 years of brotherhood at OSU." },
+              { year: "2022", text: "Centennial celebration marked 100 years of brotherhood at OSU." },
               { year: "Today", text: "120+ active brothers and a 3,500+ alumni network spanning Fortune 500s, top consulting firms, and bulge-bracket banks." },
             ].map((t) => (
               <div key={t.year} className="flex flex-col gap-3 border-b border-border pb-6">
