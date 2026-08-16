@@ -36,7 +36,7 @@ export function Footer() {
             <div className="flex gap-2">
               {[
                 { Icon: Instagram, href: "https://instagram.com/akpsiohiostate" },
-                { Icon: Linkedin, href: "https://linkedin.com" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/akpsimu/" },
                 { Icon: Mail, href: "mailto:alphakappapsiosu@gmail.com" },
               ].map(({ Icon, href }, i) => (
                 <a

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
-import { Linkedin, X } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import { useState } from "react";
 import { brothers, type Brother } from "@/lib/brothers";
 import { Reveal } from "@/components/Reveal";
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/brothers")({
       { title: "Brothers · Alpha Kappa Psi Ohio State" },
       { name: "description", content: "Meet the active brothers of Mu Chapter and learn about their majors, PC classes, industries, and leadership roles." },
       { property: "og:title", content: "Brothers · AKPsi Ohio State" },
-      { property: "og:description", content: "120+ active brothers driving careers across banking, consulting, tech, and more." },
+      { property: "og:description", content: "75+ active brothers driving careers across banking, consulting, tech, and more." },
     ],
   }),
   component: BrothersPage,
@@ -34,7 +34,7 @@ function BrothersPage() {
             Meet the <span className="italic text-primary">brothers.</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            120 active brothers across every major and industry. Click any card to learn more.
+            75 active brothers across every major. Click any card to learn more.
           </p>
         </Reveal>
       </section>
@@ -123,7 +123,7 @@ function BrotherCard({ brother, onClick, index }: { brother: Brother; onClick: (
         </div>
       </div>
       <div className="p-4 flex items-center justify-between">
-        <div className="text-xs text-muted-foreground truncate">{brother.internship ?? brother.industry}</div>
+        <div className="text-xs text-muted-foreground truncate">{brother.internship ?? brother.hometown}</div>
         <span className="text-xs text-primary font-semibold opacity-0 group-hover:opacity-100 transition-opacity">View →</span>
       </div>
     </motion.button>
@@ -141,12 +141,9 @@ function BrotherModal({ brother, onClose }: { brother: Brother | null; onClose: 
               <div className="font-display text-7xl text-white/90">{initials}</div>
             </div>
             <div className="p-7">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <div className="font-display text-3xl leading-tight">{brother.name}</div>
-                  <div className="text-sm text-muted-foreground mt-1">{brother.major} · {brother.pcClass}</div>
-                </div>
-                <button onClick={onClose} className="text-muted-foreground hover:text-foreground"><X size={18} /></button>
+              <div>
+                <div className="font-display text-3xl leading-tight">{brother.name}</div>
+                <div className="text-sm text-muted-foreground mt-1">{brother.major} · {brother.pcClass}</div>
               </div>
 
               {brother.role && (
@@ -155,12 +152,9 @@ function BrotherModal({ brother, onClose }: { brother: Brother | null; onClose: 
 
               <div className="mt-5 grid grid-cols-2 gap-4 text-sm">
                 <Info label="Hometown" value={brother.hometown} />
-                <Info label="Industry" value={brother.industry} />
                 {brother.internship && <Info label="Internship" value={brother.internship} />}
                 <Info label="PC Class" value={brother.pcClass} />
               </div>
-
-              <p className="mt-5 text-sm text-foreground/80 leading-relaxed">{brother.bio}</p>
 
               {brother.linkedin && (
                 <a

@@ -7,7 +7,7 @@ import profImg from "@/assets/akpsi2.jpg";
 import abstractRedImg from "@/assets/akpsi4.jpg";
 import brotherhoodImg from "@/assets/akspi1.jpg";
 import heroCampusImg from "@/assets/akpsi3.jpg";
-import mainImg from "@/assets/akpsi5.jpg";
+import integrityImg from "@/assets/akpsi5.jpg";
 
 const chapterPillars = [
   {
@@ -16,19 +16,24 @@ const chapterPillars = [
     image: brotherhoodImg,
   },
   {
-    title: "Professionalism",
-    body: "Our chapter focuses on useful career preparation through speaker events, resume review, interview practice, and alumni guidance. We care about practical support, not empty buzzwords.",
-    image: profImg,
-  },
-  {
-    title: "Leadership",
-    body: "Every brother is expected to contribute. We rotate officers, run committees, and develop members to lead teams, events, and community initiatives.",
-    image: abstractRedImg,
-  },
-  {
     title: "Service",
     body: "We give back through local philanthropy and campus partnerships, making an impact in Columbus while learning how to lead responsibly.",
     image: heroCampusImg,
+  },
+  {
+    title: "Unity",
+    body: "We come together as one chapter across every pledge class, major, and background, supporting each other in and out of the professional world.",
+    image: profImg,
+  },
+  {
+    title: "Knowledge",
+    body: "Our chapter focuses on useful career preparation through speaker events, resume review, interview practice, and alumni guidance. We care about practical support, not empty buzzwords.",
+    image: abstractRedImg,
+  },
+  {
+    title: "Integrity",
+    body: "We hold ourselves and each other to a high standard, doing what's right even when no one's watching, on campus and after graduation.",
+    image: integrityImg,
   },
 ];
 
@@ -532,7 +537,7 @@ function About() {
       {/* ── CHAPTER PILLARS ── */}
       <section className="container-page py-32">
         <SectionLabel>Chapter pillars</SectionLabel>
-        <h2 className="mt-4 text-4xl md:text-5xl font-semibold leading-tight">The four values that guide Mu Chapter.</h2>
+        <h2 className="mt-4 text-4xl md:text-5xl font-semibold leading-tight">The five values that guide Mu Chapter.</h2>
         <div className="mt-12 space-y-16">
           {chapterPillars.map((pillar, index) => (
             <div key={pillar.title} className="grid gap-8 items-center lg:grid-cols-[1fr_1fr]">
@@ -572,7 +577,7 @@ function About() {
               { year: "1976", text: "Chapter becomes co-educational, opening membership to all genders." },
               { year: "2010", text: "Mu Chapter recognized with the national Chapter of Excellence award." },
               { year: "2022", text: "Centennial celebration marked 100 years of brotherhood at OSU." },
-              { year: "Today", text: "120+ active brothers and a 3,500+ alumni network spanning Fortune 500s, top consulting firms, and bulge-bracket banks." },
+              { year: "Today", text: "75+ active brothers and a 3,500+ alumni network spanning Fortune 500s, top consulting firms, and bulge-bracket banks." },
             ].map((t) => (
               <div key={t.year} className="flex flex-col gap-3 border-b border-border pb-6">
                 <div className="text-xl font-semibold text-foreground">{t.year}</div>

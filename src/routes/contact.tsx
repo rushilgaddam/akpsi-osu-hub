@@ -64,7 +64,7 @@ function Contact() {
             <InfoBlock Icon={Mail} label="Email" value="alphakappapsiosu@gmail.com" href="mailto:alphakappapsiosu@gmail.com" />
             <InfoBlock Icon={MapPin} label="Address" value="Max M. Fisher College of Business · 2100 Neil Ave · Columbus, OH 43210" />
             <InfoBlock Icon={Instagram} label="Instagram" value="@akpsiohiostate" href="https://instagram.com/akpsiohiostate" />
-            <InfoBlock Icon={Linkedin} label="LinkedIn" value="AKPsi Mu Chapter" href="https://linkedin.com" />
+            <InfoBlock Icon={Linkedin} label="LinkedIn" value="AKPsi Mu Chapter" href="https://www.linkedin.com/company/akpsimu/" />
 
             <div className="pt-8 border-t border-border">
               <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">Specific inquiries</div>
