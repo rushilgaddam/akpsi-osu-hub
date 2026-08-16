@@ -61,18 +61,15 @@ function Contact() {
 
         <Reveal delay={0.1}>
           <div className="space-y-8">
-            <InfoBlock Icon={Mail} label="Email" value="akpsi.osu@gmail.com" href="mailto:akpsi.osu@gmail.com" />
+            <InfoBlock Icon={Mail} label="Email" value="alphakappapsiosu@gmail.com" href="mailto:alphakappapsiosu@gmail.com" />
             <InfoBlock Icon={MapPin} label="Address" value="Max M. Fisher College of Business · 2100 Neil Ave · Columbus, OH 43210" />
-            <InfoBlock Icon={Instagram} label="Instagram" value="@akpsi.osu" href="https://instagram.com" />
+            <InfoBlock Icon={Instagram} label="Instagram" value="@akpsiohiostate" href="https://instagram.com/akpsiohiostate" />
             <InfoBlock Icon={Linkedin} label="LinkedIn" value="AKPsi Mu Chapter" href="https://linkedin.com" />
 
             <div className="pt-8 border-t border-border">
               <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">Specific inquiries</div>
               <div className="space-y-2 text-sm">
-                <Row label="Rush" value="vp.membership@akpsiosu.org" />
-                <Row label="Alumni" value="alumni@akpsiosu.org" />
-                <Row label="Sponsorship" value="vp.finance@akpsiosu.org" />
-                <Row label="Philanthropy" value="vp.service@akpsiosu.org" />
+                <Row label="Membership" value="vpmembership.osuakpsi@gmail.com" />
               </div>
             </div>
           </div>

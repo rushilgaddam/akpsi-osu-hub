@@ -35,9 +35,9 @@ export function Footer() {
             </div>
             <div className="flex gap-2">
               {[
-                { Icon: Instagram, href: "https://instagram.com" },
+                { Icon: Instagram, href: "https://instagram.com/akpsiohiostate" },
                 { Icon: Linkedin, href: "https://linkedin.com" },
-                { Icon: Mail, href: "mailto:akpsi@osu.edu" },
+                { Icon: Mail, href: "mailto:alphakappapsiosu@gmail.com" },
               ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
@@ -50,7 +50,7 @@ export function Footer() {
                 </a>
               ))}
             </div>
-            <p className="mt-6 text-sm text-muted-foreground">akpsi.osu@gmail.com</p>
+            <p className="mt-6 text-sm text-muted-foreground">alphakappapsiosu@gmail.com</p>
           </div>
         </div>
 

@@ -22,7 +22,8 @@ export const Route = createFileRoute("/brothers")({
 
 function BrothersPage() {
   const [selected, setSelected] = useState<Brother | null>(null);
-  const filtered = brothers;
+  const [tab, setTab] = useState<"all" | "leadership">("all");
+  const filtered = tab === "leadership" ? brothers.filter((b) => b.role) : brothers;
 
   return (
     <>
@@ -39,8 +40,29 @@ function BrothersPage() {
       </section>
 
       <section className="container-page pb-32">
+        <div className="mb-6 flex items-center gap-2">
+          <button
+            onClick={() => setTab("all")}
+            className={`px-4 h-9 rounded-full text-sm font-medium transition-colors ${
+              tab === "all" ? "bg-primary text-primary-foreground" : "bg-card border border-border text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            All Members
+          </button>
+          <button
+            onClick={() => setTab("leadership")}
+            className={`px-4 h-9 rounded-full text-sm font-medium transition-colors ${
+              tab === "leadership" ? "bg-primary text-primary-foreground" : "bg-card border border-border text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            Leadership
+          </button>
+        </div>
+
         <div className="mb-6 text-sm text-muted-foreground">
-          Showing <span className="text-foreground font-semibold">{filtered.length}</span> of {brothers.length} brothers
+          {tab === "leadership"
+            ? <><span className="text-foreground font-semibold">{filtered.length}</span> brothers in leadership</>
+            : <>Showing <span className="text-foreground font-semibold">{filtered.length}</span> of {brothers.length} brothers</>}
         </div>
 
         <motion.div layout className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -139,7 +161,6 @@ function BrotherModal({ brother, onClose }: { brother: Brother | null; onClose: 
               </div>
 
               <p className="mt-5 text-sm text-foreground/80 leading-relaxed">{brother.bio}</p>
-              <p className="mt-3 text-sm text-muted-foreground italic">Fun fact: {brother.funFact}</p>
 
               {brother.linkedin && (
                 <a
