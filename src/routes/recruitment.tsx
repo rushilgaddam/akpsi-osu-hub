@@ -11,9 +11,14 @@ const AKPSI_EMAIL = "alphakappapsiosu@gmail.com";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzepyydk";
 
 const schedule = [
-  { title: "Applications open", detail: "Recruitment begins at the start of the semester and applications open shortly after." },
-  { title: "Meet the brothers", detail: "Learn more about the chapter through a mix of professional and social events." },
-  { title: "Applications due", detail: "Submit your application before recruitment wraps up for the semester." },
+  { title: "Applications open", detail: "Applications are open now — apply using the link above.", confirmed: true },
+  {
+    title: "Meet the Brothers",
+    detail: "Session 1: Tue, Sept 1, 8:00–10:00 PM, Lazenby Hall 21. Session 2: Thu, Sept 3, 8:00–10:00 PM, Lazenby Hall 21.",
+    confirmed: true,
+  },
+  { title: "Applications due", detail: "Saturday, Sept 5th at 11:59 AM ET (noon).", confirmed: true },
+  { title: "More coming soon", detail: "Additional events will be announced on our social media as recruitment continues.", confirmed: false },
 ];
 
 const faqs = [
@@ -53,7 +58,7 @@ export function Recruitment() {
     const lastName = data.get("lastName") as string;
     const email = data.get("email") as string;
     const major = data.get("major") as string;
-    const year = data.get("year") as string;
+    const gradDate = data.get("gradDate") as string;
     const why = data.get("why") as string;
 
     const subject = `Recruitment interest: ${firstName} ${lastName}`;
@@ -61,7 +66,7 @@ export function Recruitment() {
       `Name: ${firstName} ${lastName}`,
       `Email: ${email}`,
       `Major: ${major || "—"}`,
-      `Year: ${year || "—"}`,
+      `Expected Graduation: ${gradDate || "—"}`,
       why ? `Why AKPsi: ${why}` : null,
     ]
       .filter(Boolean)
@@ -123,8 +128,8 @@ export function Recruitment() {
             className="rush-fade-up rush-delay-2 text-base leading-relaxed max-w-sm"
             style={{ color: "rgba(255,255,255,0.5)" }}
           >
-            Recruitment happens at the beginning of each semester.<br />
-            Specific dates are posted on our social media.
+            Applications are open now.<br />
+            Meet the Brothers dates are posted below.
           </p>
 
           {/* CTAs */}
@@ -188,7 +193,7 @@ export function Recruitment() {
             <Input required type="email" name="email" placeholder="OSU email"   className="h-12 rounded-xl" />
             <div className="grid sm:grid-cols-2 gap-4">
               <Input name="major" placeholder="Major"                           className="h-12 rounded-xl" />
-              <Input name="year"  placeholder="Year (Fr / So / Jr / Sr)"        className="h-12 rounded-xl" />
+              <Input name="gradDate" placeholder="Expected graduation (e.g. May 2028)" className="h-12 rounded-xl" />
             </div>
             <Textarea name="why" placeholder="Why AKPsi? (optional)" rows={4}   className="rounded-xl" />
             <Button type="submit" className="w-full sm:w-auto rounded-full bg-primary text-background h-12 px-7">
@@ -212,6 +217,9 @@ export function Recruitment() {
       <section id="schedule" className="bg-muted/30 py-24 border-t border-border">
         <div className="container-page">
           <SectionLabel>Recruitment timeline</SectionLabel>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Meet the Brothers sessions are confirmed below — other dates are tentative and will be announced on our social media.
+          </p>
           <div className="mt-10 space-y-4">
             {schedule.map((item, i) => (
               <Reveal key={item.title}>
@@ -221,7 +229,18 @@ export function Recruitment() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <div className="mt-1 text-xl font-semibold">{item.title}</div>
+                      <div className="flex items-center gap-2 mt-1">
+                        <span className="text-xl font-semibold">{item.title}</span>
+                        <span
+                          className={`px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-semibold ${
+                            item.confirmed
+                              ? "bg-primary/10 text-primary"
+                              : "bg-muted text-muted-foreground border border-border"
+                          }`}
+                        >
+                          {item.confirmed ? "Confirmed" : "Tentative"}
+                        </span>
+                      </div>
                     </div>
                   </div>
                   <div className="text-sm text-foreground/70 max-w-sm sm:text-right">{item.detail}</div>

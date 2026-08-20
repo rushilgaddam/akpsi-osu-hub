@@ -537,7 +537,7 @@ function About() {
       {/* ── CHAPTER PILLARS ── */}
       <section className="container-page py-32">
         <SectionLabel>Chapter pillars</SectionLabel>
-        <h2 className="mt-4 text-4xl md:text-5xl font-semibold leading-tight">The five values that guide Mu Chapter.</h2>
+        <h2 className="mt-4 text-4xl md:text-5xl font-semibold leading-tight">The five values that guide the Mu Chapter.</h2>
         <div className="mt-12 space-y-16">
           {chapterPillars.map((pillar, index) => (
             <div key={pillar.title} className="grid gap-8 items-center lg:grid-cols-[1fr_1fr]">
