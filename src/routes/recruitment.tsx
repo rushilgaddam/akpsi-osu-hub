@@ -1,10 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
+import { toast } from "sonner";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+
+const AKPSI_EMAIL = "alphakappapsiosu@gmail.com";
 
 const schedule = [
   { title: "Applications open", detail: "Recruitment begins at the start of the semester and applications open shortly after." },
@@ -39,6 +42,8 @@ export function Recruitment() {
     return () => clearTimeout(id);
   }, []);
 
+  const [lastMessage, setLastMessage] = useState<{ subject: string; body: string } | null>(null);
+
   const onInterestSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -61,8 +66,19 @@ export function Recruitment() {
       .filter(Boolean)
       .join("\n");
 
-    window.location.href = `mailto:alphakappapsiosu@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${AKPSI_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // mailto only works if the visitor has a mail app configured, so keep the message
+    // around and offer a copy-to-clipboard fallback in case nothing opened.
+    setLastMessage({ subject, body });
+    toast.success("Opening your email app to send this to AKPsi.");
     form.reset();
+  };
+
+  const copyInterestMessage = async () => {
+    if (!lastMessage) return;
+    await navigator.clipboard.writeText(`To: ${AKPSI_EMAIL}\nSubject: ${lastMessage.subject}\n\n${lastMessage.body}`);
+    toast.success("Copied. Paste it into an email to " + AKPSI_EMAIL + ".");
   };
 
   return (
@@ -165,6 +181,16 @@ export function Recruitment() {
             <Button type="submit" className="w-full sm:w-auto rounded-full bg-primary text-background h-12 px-7">
               Submit Interest
             </Button>
+
+            {lastMessage && (
+              <div className="rounded-2xl border border-border bg-muted/30 p-4 text-sm text-muted-foreground">
+                Didn't see your email app open?{" "}
+                <button type="button" onClick={copyInterestMessage} className="text-primary font-medium underline underline-offset-4">
+                  Copy your info
+                </button>{" "}
+                and paste it into an email to {AKPSI_EMAIL} directly.
+              </div>
+            )}
           </form>
         </div>
       </section>

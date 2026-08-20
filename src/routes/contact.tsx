@@ -20,8 +20,12 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
+const AKPSI_EMAIL = "alphakappapsiosu@gmail.com";
+
 function Contact() {
   const [submitting, setSubmitting] = useState(false);
+  const [lastMessage, setLastMessage] = useState<{ subject: string; body: string } | null>(null);
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
@@ -34,11 +38,20 @@ function Contact() {
     const message = data.get("message") as string;
 
     const body = `From: ${name} (${email})\n\n${message}`;
-    window.location.href = `mailto:alphakappapsiosu@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${AKPSI_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
+    // mailto only works if the visitor has a mail app configured, so keep the message
+    // around and offer a copy-to-clipboard fallback in case nothing opened.
+    setLastMessage({ subject, body });
     toast.success("Opening your email app to send this to AKPsi.");
     form.reset();
     setSubmitting(false);
+  };
+
+  const copyMessage = async () => {
+    if (!lastMessage) return;
+    await navigator.clipboard.writeText(`To: ${AKPSI_EMAIL}\nSubject: ${lastMessage.subject}\n\n${lastMessage.body}`);
+    toast.success("Copied. Paste it into an email to " + AKPSI_EMAIL + ".");
   };
 
   return (
@@ -65,6 +78,16 @@ function Contact() {
             <Button type="submit" disabled={submitting} className="rounded-full h-12 px-7 bg-primary hover:bg-primary/90">
               {submitting ? "Sending…" : "Send Message"} <ArrowRight size={16} className="ml-1" />
             </Button>
+
+            {lastMessage && (
+              <div className="rounded-2xl border border-border bg-muted/30 p-4 text-sm text-muted-foreground">
+                Didn't see your email app open?{" "}
+                <button type="button" onClick={copyMessage} className="text-primary font-medium underline underline-offset-4">
+                  Copy your message
+                </button>{" "}
+                and paste it into an email to {AKPSI_EMAIL} directly.
+              </div>
+            )}
           </form>
         </Reveal>
 

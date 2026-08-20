@@ -7,12 +7,23 @@ export type Brother = {
   internship?: string;
   hometown: string;
   linkedin?: string;
+  photo?: string;
 };
+
+// Headshots living in src/assets/members, keyed by brother id (e.g. "derek-bahl.jpg").
+// Not every brother has a photo yet — cards fall back to initials when one is missing.
+const photoModules = import.meta.glob<{ default: string }>("../assets/members/*.jpg", {
+  eager: true,
+});
+
+function photoFor(id: string): string | undefined {
+  return photoModules[`../assets/members/${id}.jpg`]?.default;
+}
 
 // Active chapter roster imported from the latest member list.
 export const brothers: Brother[] = [
   { id: "derek-bahl", name: "Derek Bahl", major: "Finance", pcClass: "Alpha", hometown: "Rye, NY", linkedin: "https://www.linkedin.com/in/Bahl.36" },
-  { id: "connor-benke", name: "Connor Benke", major: "Finance", pcClass: "Alpha", hometown: "Tuckahoe, NY", linkedin: "https://www.linkedin.com/in/Benke.6" },
+  { id: "connor-benke", name: "Connor Benke", major: "Finance", pcClass: "Alpha", role: "VP of Finance", hometown: "Tuckahoe, NY", linkedin: "https://www.linkedin.com/in/Benke.6" },
   { id: "anvi-bhavanam", name: "Anvi Bhavanam", major: "Finance", pcClass: "Alpha", hometown: "Dallas, Texas", linkedin: "https://www.linkedin.com/in/Bhavanam.3" },
   { id: "hayes-bubnick", name: "Hayes Bubnick", major: "Finance", pcClass: "Alpha", hometown: "Medina, OH", linkedin: "https://www.linkedin.com/in/Bubnick.13" },
   { id: "tristan-cayce", name: "Tristan Cayce", major: "Economics", pcClass: "Beta", hometown: "Lewis Center, OH", linkedin: "https://www.linkedin.com/in/cayce.11" },
@@ -20,7 +31,7 @@ export const brothers: Brother[] = [
   { id: "kai-cheung", name: "Kai Cheung", major: "Accounting", pcClass: "Gamma", hometown: "Dayton, OH", linkedin: "https://www.linkedin.com/in/cheung.297" },
   { id: "peter-conser", name: "Peter Conser", major: "Economics", pcClass: "Alpha", hometown: "Chicago, IL", linkedin: "https://www.linkedin.com/in/Conser.3" },
   { id: "george-di-iaconi", name: "George Di Iaconi", major: "Economics & Real Estate", pcClass: "Gamma", hometown: "Bethesda, MD", linkedin: "https://www.linkedin.com/in/diiaconi.1" },
-  { id: "mananya-ellendula", name: "Mananya Ellendula", major: "Pre-Law, Finance & PPE (Politics, Philosophy, Economics)", pcClass: "Alpha", hometown: "Dublin, OH" },
+  { id: "mananya-ellendula", name: "Mananya Ellendula", major: "Pre-Law, Finance & PPE (Politics, Philosophy, Economics)", pcClass: "Alpha", role: "President", hometown: "Dublin, OH" },
   { id: "madelyn-fedor", name: "Madelyn Fedor", major: "Marketing", pcClass: "Alpha", hometown: "Basking Ridge, NJ", linkedin: "https://www.linkedin.com/in/Fedor.44" },
   { id: "samantha-feldman", name: "Samantha Feldman", major: "Finance", pcClass: "Alpha", hometown: "Fort Lauderdale, FL", linkedin: "https://www.linkedin.com/in/Feldman.323" },
   { id: "jonathan-felix", name: "Jonathan Felix", major: "Hospitality Management", pcClass: "Gamma", hometown: "México City, México", linkedin: "https://www.linkedin.com/in/felixsaucedo.1" },
@@ -37,33 +48,33 @@ export const brothers: Brother[] = [
   { id: "gabi-ivler", name: "Gabi Ivler", major: "Finance", pcClass: "Beta", hometown: "Northern Jersey", linkedin: "https://www.linkedin.com/in/Ivler.4" },
   { id: "sahana-karthik", name: "Sahana Karthik", major: "Marketing and Public Policy Analysis (Pre-Law)", pcClass: "Gamma", hometown: "Boston, MA", linkedin: "https://www.linkedin.com/in/karthik.35" },
   { id: "rishika-katakam", name: "Rishika Katakam", major: "Finance", pcClass: "Alpha", hometown: "Chicago, IL", linkedin: "https://www.linkedin.com/in/katakam.5" },
-  { id: "gautam-ketkar", name: "Gautam Ketkar", major: "Finance", pcClass: "Beta", hometown: "Norristown, PA", linkedin: "https://www.linkedin.com/in/Ketkar.15" },
+  { id: "gautam-ketkar", name: "Gautam Ketkar", major: "Finance", pcClass: "Beta", role: "VP of Administration", hometown: "Norristown, PA", linkedin: "https://www.linkedin.com/in/Ketkar.15" },
   { id: "josh-khodosh", name: "Josh Khodosh", major: "Finance", pcClass: "Beta", hometown: "Cliffside Park,NJ", linkedin: "https://www.linkedin.com/in/Khodosh.1" },
   { id: "kris-kimmel", name: "Kris Kimmel", major: "Accounting & Finance", pcClass: "Beta", hometown: "Cleveland, OH", linkedin: "https://www.linkedin.com/in/Kimmel.136" },
   { id: "sam-klosterman", name: "Sam Klosterman", major: "Undeclared", pcClass: "Alpha", hometown: "Columbus, OH" },
   { id: "ayaan-kokate", name: "Ayaan Kokate", major: "Finance", pcClass: "Gamma", hometown: "Princeton, NJ", linkedin: "https://www.linkedin.com/in/kokate.4" },
   { id: "caden-kozak", name: "Caden Kozak", major: "Finance", pcClass: "Gamma", hometown: "Cleveland, OH", linkedin: "https://www.linkedin.com/in/Kozak.102" },
-  { id: "victoria-krulig", name: "Victoria Krulig", major: "Strat. Comm.", pcClass: "Beta", hometown: "Miami, FL", linkedin: "https://www.linkedin.com/in/Krulig.2" },
+  { id: "victoria-krulig", name: "Victoria Krulig", major: "Strat. Comm.", pcClass: "Beta", role: "VP of Marketing", hometown: "Miami, FL", linkedin: "https://www.linkedin.com/in/Krulig.2" },
   { id: "jack-langhurst", name: "Jack Langhurst", major: "Accounting", pcClass: "Alpha", hometown: "Columbus, OH", linkedin: "https://www.linkedin.com/in/langhurst.8" },
   { id: "kevin-li", name: "Kevin Li", major: "Finance & Econ", pcClass: "Alpha", hometown: "Boston, MA", linkedin: "https://www.linkedin.com/in/li.13552" },
   { id: "george-limperis", name: "George Limperis", major: "Finance", pcClass: "Beta", hometown: "Chicago, IL", linkedin: "https://www.linkedin.com/in/Limperis.2" },
   { id: "blake-lloyd", name: "Blake Lloyd", major: "Finance", pcClass: "Beta", hometown: "Baltimore, MD", linkedin: "https://www.linkedin.com/in/Lloyd.530" },
-  { id: "nik-mahajan", name: "Nik Mahajan", major: "Finance", pcClass: "Alpha", hometown: "Cleveland, OH", linkedin: "https://www.linkedin.com/in/mahajan.185" },
+  { id: "nik-mahajan", name: "Nik Mahajan", major: "Finance", pcClass: "Alpha", role: "VP of Alumni Relations", hometown: "Cleveland, OH", linkedin: "https://www.linkedin.com/in/mahajan.185" },
   { id: "michael-mani", name: "Michael Mani", major: "Finance", pcClass: "Gamma", hometown: "Glenview, IL", linkedin: "https://www.linkedin.com/in/Mani.64" },
   { id: "trista-may", name: "Trista May", major: "Finance", pcClass: "Beta", hometown: "Berlin, CT", linkedin: "https://www.linkedin.com/in/may.819" },
   { id: "rishabh-mehta", name: "Rishabh Mehta", major: "Finance", pcClass: "Beta", hometown: "Cleveland, OH", linkedin: "https://www.linkedin.com/in/Mehta.590" },
   { id: "isaac-merz", name: "Isaac Merz", major: "Operations Management", pcClass: "Beta", hometown: "Naperville, IL", linkedin: "https://www.linkedin.com/in/Merz.101" },
-  { id: "joey-mitsch", name: "Joey Mitsch", major: "Finance", pcClass: "Beta", hometown: "Cincinnati, OH", linkedin: "https://www.linkedin.com/in/mitsch.16" },
+  { id: "joey-mitsch", name: "Joey Mitsch", major: "Finance", pcClass: "Beta", role: "VP of Philanthropy", hometown: "Cincinnati, OH", linkedin: "https://www.linkedin.com/in/mitsch.16" },
   { id: "max-moses", name: "Max Moses", major: "Health Sciences", pcClass: "Alpha", hometown: "Cleveland, OH", linkedin: "https://www.linkedin.com/in/Moses.243" },
   { id: "chase-o-brien", name: "Chase O'Brien", major: "Undeclared", pcClass: "Alpha", hometown: "Columbus, OH" },
   { id: "kachi-onyia", name: "Kachi Onyia", major: "Marketing", pcClass: "Alpha", hometown: "Albuquerque, NM", linkedin: "https://www.linkedin.com/in/Onyia.7" },
   { id: "mateo-pattani", name: "Mateo Pattani", major: "Finance", pcClass: "Gamma", hometown: "Marin, CA", linkedin: "https://www.linkedin.com/in/pattani.6" },
-  { id: "aashish-prabakaran", name: "Aashish Prabakaran", major: "Finance / Economics", pcClass: "Alpha", hometown: "Columbus, OH", linkedin: "https://www.linkedin.com/in/Prabakaran.8" },
-  { id: "max-prunty", name: "Max Prunty", major: "Finance & Real Estate and Urban Analysis", pcClass: "Beta", hometown: "Tappan, NY", linkedin: "https://www.linkedin.com/in/Prunty.26" },
+  { id: "aashish-prabakaran", name: "Aashish Prabakaran", major: "Finance / Economics", pcClass: "Alpha", role: "VP of Professional Development", hometown: "Columbus, OH", linkedin: "https://www.linkedin.com/in/Prabakaran.8" },
+  { id: "max-prunty", name: "Max Prunty", major: "Finance & Real Estate and Urban Analysis", pcClass: "Beta", role: "VP of Internal Events", hometown: "Tappan, NY", linkedin: "https://www.linkedin.com/in/Prunty.26" },
   { id: "jonathan-rawlings", name: "Jonathan Rawlings", major: "Finance", pcClass: "Gamma", hometown: "Columbus, OH", linkedin: "https://www.linkedin.com/in/rawlings.61" },
   { id: "ella-robinson", name: "Ella Robinson", major: "Industrial and Systems Engineering", pcClass: "Alpha", hometown: "Cleveland, OH", linkedin: "https://www.linkedin.com/in/Robinson.3102" },
-  { id: "christine-rocco", name: "Christine Rocco", major: "Finance", pcClass: "Alpha", hometown: "Cleveland, OH", linkedin: "https://www.linkedin.com/in/Rocco.77" },
-  { id: "jenna-ruether", name: "Jenna Ruether", major: "Acounting", pcClass: "Alpha", hometown: "Akron, OH", linkedin: "https://www.linkedin.com/in/ruether.2" },
+  { id: "christine-rocco", name: "Christine Rocco", major: "Finance", pcClass: "Alpha", role: "VP of Membership", hometown: "Cleveland, OH", linkedin: "https://www.linkedin.com/in/Rocco.77" },
+  { id: "jenna-ruether", name: "Jenna Ruether", major: "Accounting", pcClass: "Alpha", hometown: "Akron, OH", linkedin: "https://www.linkedin.com/in/ruether.2" },
   { id: "joelle-sabbat", name: "Joelle Sabbat", major: "Marketing", pcClass: "Alpha", hometown: "Silver Spring, MD", linkedin: "https://www.linkedin.com/in/sabbat.1" },
   { id: "thomas-schwartz", name: "Thomas Schwartz", major: "Accounting", pcClass: "Beta", hometown: "Boston, MA", linkedin: "https://www.linkedin.com/in/schwartz.2390" },
   { id: "tanush-shankar", name: "Tanush Shankar", major: "Finance & Operations Management", pcClass: "Gamma", hometown: "Lewis Center, OH", linkedin: "https://www.linkedin.com/in/shankar.139" },
@@ -88,10 +99,54 @@ export const brothers: Brother[] = [
   { id: "austyn-yunger", name: "Austyn Yunger", major: "Finance", pcClass: "Alpha", hometown: "Dayton, OH", linkedin: "https://www.linkedin.com/in/yunger.5" },
 ];
 
+for (const brother of brothers) {
+  brother.photo = photoFor(brother.id);
+}
+
+// Several brothers list a combined major (e.g. "Accounting & Finance"). This maps each
+// raw major string to the individual majors it should match against in filters, so
+// selecting "Finance" also surfaces someone whose major field reads "Accounting & Finance".
+// Formal compound program names (e.g. "Industrial & Systems Engineering") are left intact
+// rather than split, since they're a single degree, not two majors joined together.
+const MAJOR_TAGS: Record<string, string[]> = {
+  "Accounting": ["Accounting"],
+  "Accounting & Finance": ["Accounting", "Finance"],
+  "Computer Science & Engineering": ["Computer Science & Engineering"],
+  "Construction Systems Management": ["Construction Systems Management"],
+  "Economics": ["Economics"],
+  "Economics & Real Estate": ["Economics", "Real Estate"],
+  "Finance": ["Finance"],
+  "Finance & Accounting": ["Finance", "Accounting"],
+  "Finance & Econ": ["Finance", "Economics"],
+  "Finance & Operations Management": ["Finance", "Operations Management"],
+  "Finance & Real Estate and Urban Analysis": ["Finance", "Real Estate"],
+  "Finance (Pre-Law)": ["Finance", "Pre-Law"],
+  "Finance / Economics": ["Finance", "Economics"],
+  "Finance and Info Systems": ["Finance", "Information Systems"],
+  "Health Sciences": ["Health Sciences"],
+  "Hospitality Management": ["Hospitality Management"],
+  "Industrial & Systems Engineering": ["Industrial & Systems Engineering"],
+  "Industrial and Systems Engineering": ["Industrial & Systems Engineering"],
+  "Logistics & Operations": ["Logistics & Operations"],
+  "Marketing": ["Marketing"],
+  "Marketing and Public Policy Analysis (Pre-Law)": ["Marketing", "Public Policy Analysis", "Pre-Law"],
+  "Neuroscience and Economics": ["Neuroscience", "Economics"],
+  "Operations Management": ["Operations Management"],
+  "Pre-Law, Finance & PPE (Politics, Philosophy, Economics)": ["Pre-Law", "Finance", "PPE (Politics, Philosophy, Economics)"],
+  "Strat. Comm.": ["Strategic Communication"],
+  "Undeclared": ["Undeclared"],
+};
+
+export function majorTags(major: string): string[] {
+  return MAJOR_TAGS[major] ?? [major];
+}
+
 export const FILTERS = {
-  pcClasses: ["Freshman", "Sophomore", "Junior", "Senior"] as const,
+  pcClasses: [...new Set(brothers.map((b) => b.pcClass))].sort(),
+  majors: [...new Set(brothers.flatMap((b) => majorTags(b.major)))].sort(),
   roles: [
-    "President", "VP of Operations", "VP of Membership", "VP of Finance",
-    "VP of Brotherhood", "VP of Professional Dev", "VP of Service", "Secretary",
+    "President", "VP of Administration", "VP of Finance", "VP of Membership",
+    "VP of Professional Development", "VP of Alumni Relations",
+    "VP of Internal Events", "VP of Philanthropy", "VP of Marketing",
   ] as const,
 };
