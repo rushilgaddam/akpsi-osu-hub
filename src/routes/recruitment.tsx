@@ -248,6 +248,14 @@ export function Recruitment() {
               </Reveal>
             ))}
           </div>
+
+          <p className="mt-8 text-sm text-muted-foreground">
+            Have recruitment questions? Email{" "}
+            <a href="mailto:rocco.77@osu.edu" className="text-primary font-medium underline underline-offset-4">
+              rocco.77@osu.edu
+            </a>
+            .
+          </p>
         </div>
       </section>
 
