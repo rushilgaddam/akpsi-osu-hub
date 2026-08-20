@@ -13,12 +13,12 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzepyydk";
 const schedule = [
   { title: "Applications open", detail: "Applications are open now — apply using the link above.", confirmed: true },
   {
-    title: "Meet the Brothers",
+    title: "Meet the Members",
     detail: "Session 1: Tue, Sept 1, 8:00–10:00 PM, Lazenby Hall 21. Session 2: Thu, Sept 3, 8:00–10:00 PM, Lazenby Hall 21.",
     confirmed: true,
   },
   { title: "Applications due", detail: "Saturday, Sept 5th at 11:59 AM ET (noon).", confirmed: true },
-  { title: "More coming soon", detail: "Additional events will be announced on our social media as recruitment continues.", confirmed: false },
+  { title: "More Coming Soon", detail: "Additional events will be announced on our social media as recruitment continues.", confirmed: false },
 ];
 
 const faqs = [
@@ -129,7 +129,7 @@ export function Recruitment() {
             style={{ color: "rgba(255,255,255,0.5)" }}
           >
             Applications are open now.<br />
-            Meet the Brothers dates are posted below.
+            Meet the Members dates are posted below.
           </p>
 
           {/* CTAs */}
@@ -218,7 +218,7 @@ export function Recruitment() {
         <div className="container-page">
           <SectionLabel>Recruitment timeline</SectionLabel>
           <p className="mt-3 text-sm text-muted-foreground">
-            Meet the Brothers sessions are confirmed below — other dates are tentative and will be announced on our social media.
+            Meet the Members sessions are confirmed below — other dates are tentative and will be announced on our social media.
           </p>
           <div className="mt-10 space-y-4">
             {schedule.map((item, i) => (
