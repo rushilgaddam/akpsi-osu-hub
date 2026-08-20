@@ -21,12 +21,13 @@ export const Route = createFileRoute("/contact")({
 });
 
 const AKPSI_EMAIL = "alphakappapsiosu@gmail.com";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzepyydk";
 
 function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [lastMessage, setLastMessage] = useState<{ subject: string; body: string } | null>(null);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
 
@@ -37,15 +38,28 @@ function Contact() {
     const subject = (data.get("subject") as string) || "Website contact form";
     const message = data.get("message") as string;
 
-    const body = `From: ${name} (${email})\n\n${message}`;
-    window.location.href = `mailto:${AKPSI_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+      });
+      if (!res.ok) throw new Error("Formspree request failed");
 
-    // mailto only works if the visitor has a mail app configured, so keep the message
-    // around and offer a copy-to-clipboard fallback in case nothing opened.
-    setLastMessage({ subject, body });
-    toast.success("Opening your email app to send this to AKPsi.");
-    form.reset();
-    setSubmitting(false);
+      toast.success("Message sent to AKPsi.");
+      setLastMessage(null);
+      form.reset();
+    } catch {
+      // Formspree is the real delivery path; if the request itself failed (offline,
+      // blocked, service down), fall back to mailto + a copy-to-clipboard safety net.
+      const body = `From: ${name} (${email})\n\n${message}`;
+      window.location.href = `mailto:${AKPSI_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setLastMessage({ subject, body });
+      toast.error("Couldn't reach our form service — opening your email app instead.");
+      form.reset();
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const copyMessage = async () => {

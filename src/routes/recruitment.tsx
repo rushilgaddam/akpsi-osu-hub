@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const AKPSI_EMAIL = "alphakappapsiosu@gmail.com";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzepyydk";
 
 const schedule = [
   { title: "Applications open", detail: "Recruitment begins at the start of the semester and applications open shortly after." },
@@ -44,7 +45,7 @@ export function Recruitment() {
 
   const [lastMessage, setLastMessage] = useState<{ subject: string; body: string } | null>(null);
 
-  const onInterestSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onInterestSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
@@ -66,13 +67,25 @@ export function Recruitment() {
       .filter(Boolean)
       .join("\n");
 
-    window.location.href = `mailto:${AKPSI_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+      });
+      if (!res.ok) throw new Error("Formspree request failed");
 
-    // mailto only works if the visitor has a mail app configured, so keep the message
-    // around and offer a copy-to-clipboard fallback in case nothing opened.
-    setLastMessage({ subject, body });
-    toast.success("Opening your email app to send this to AKPsi.");
-    form.reset();
+      toast.success("Sent to AKPsi — you're on the list.");
+      setLastMessage(null);
+      form.reset();
+    } catch {
+      // Formspree is the real delivery path; if the request itself failed (offline,
+      // blocked, service down), fall back to mailto + a copy-to-clipboard safety net.
+      window.location.href = `mailto:${AKPSI_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setLastMessage({ subject, body });
+      toast.error("Couldn't reach our form service — opening your email app instead.");
+      form.reset();
+    }
   };
 
   const copyInterestMessage = async () => {

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { Linkedin } from "lucide-react";
 import { useMemo, useState } from "react";
-import { brothers, FILTERS, majorTags, type Brother } from "@/lib/brothers";
+import { brothers, FILTERS, majorTags, roleTier, type Brother } from "@/lib/brothers";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -31,6 +31,15 @@ function BrothersPage() {
     let list = tab === "leadership" ? brothers.filter((b) => b.role) : brothers;
     if (pcClass !== "all") list = list.filter((b) => b.pcClass === pcClass);
     if (major !== "all") list = list.filter((b) => majorTags(b.major).includes(major));
+
+    if (tab === "leadership") {
+      const tierOrder = { president: 0, vp: 1, director: 2 } as const;
+      list = [...list].sort((a, b) => {
+        const diff = (tierOrder[roleTier(a.role)!] ?? 3) - (tierOrder[roleTier(b.role)!] ?? 3);
+        return diff !== 0 ? diff : a.name.localeCompare(b.name);
+      });
+    }
+
     return list;
   }, [tab, pcClass, major]);
 
@@ -175,8 +184,14 @@ function BrotherCard({ brother, onClick }: { brother: Brother; onClick: () => vo
         )}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 to-transparent" />
         {brother.role && (
-          <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-primary text-primary-foreground text-[10px] uppercase tracking-wider font-semibold">
-            Exec
+          <div
+            className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-[10px] uppercase tracking-wider font-semibold ${
+              roleTier(brother.role) === "director"
+                ? "bg-white/90 text-foreground"
+                : "bg-primary text-primary-foreground"
+            }`}
+          >
+            {roleTier(brother.role) === "president" ? "President" : roleTier(brother.role) === "vp" ? "VP" : "Director"}
           </div>
         )}
         <div className="absolute bottom-3 left-4 right-4 text-white">
@@ -213,7 +228,12 @@ function BrotherModal({ brother, onClose }: { brother: Brother | null; onClose: 
               </div>
 
               {brother.role && (
-                <Badge className="mt-4 bg-primary text-primary-foreground rounded-full">{brother.role}</Badge>
+                <Badge
+                  className="mt-4 rounded-full"
+                  variant={roleTier(brother.role) === "director" ? "outline" : "default"}
+                >
+                  {brother.role}
+                </Badge>
               )}
 
               <div className="mt-5 grid grid-cols-2 gap-4 text-sm">
