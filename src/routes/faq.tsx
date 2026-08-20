@@ -10,7 +10,7 @@ const categories = [
     questions: [
       {
         q: "What is Alpha Kappa Psi?",
-        a: "Alpha Kappa Psi is the oldest and largest professional business fraternity in the world, founded in 1904 at NYU. The Mu Chapter at Ohio State has been active since 1922, developing business leaders across every industry.",
+        a: "Alpha Kappa Psi is the oldest and largest professional business fraternity in the world, founded in 1904 at NYU. The Mu Chapter at Ohio State was originally chartered in 1922 and rechartered in 2025, developing business leaders across every industry.",
       },
       {
         q: "Is AKPsi a social fraternity?",

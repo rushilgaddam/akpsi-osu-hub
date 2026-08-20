@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Alpha Kappa Psi · Ohio State" },
       {
         property: "og:description",
-        content: "Brotherhood. Professionalism. Service. Since 1922 at OSU.",
+        content: "Brotherhood. Service. Integrity. Rechartered 2025 at OSU.",
       },
     ],
   }),
@@ -154,8 +154,9 @@ function Home() {
 
             <p className="mt-4 text-base leading-relaxed text-foreground/80 max-w-2xl">
               Our brotherhood is made up of driven, inspiring, and talented
-              students from every college on campus. Since 1922, Mu Chapter has
-              cultivated leaders across student government, entrepreneurship,
+              students from every college on campus. Originally chartered in
+              1922 and rechartered in 2025, Mu Chapter has cultivated leaders
+              across student government, entrepreneurship,
               varsity athletics, academics, and the professional world. Our
               alumni network connects us not only across Ohio State, but
               nationwide and abroad.

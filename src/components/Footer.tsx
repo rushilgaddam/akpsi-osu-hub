@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="font-display text-3xl md:text-4xl leading-tight max-w-md">
-              Brotherhood. Professionalism. Service.
+              Brotherhood. Service. Integrity.
             </div>
             <p className="mt-4 text-sm text-muted-foreground max-w-sm">
               Alpha Kappa Psi · Mu Chapter at The Ohio State University.

@@ -25,11 +25,20 @@ function Contact() {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      toast.success("Message sent. We will get back to you within 48 hours.");
-      (e.target as HTMLFormElement).reset();
-      setSubmitting(false);
-    }, 800);
+
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+    const name = data.get("name") as string;
+    const email = data.get("email") as string;
+    const subject = (data.get("subject") as string) || "Website contact form";
+    const message = data.get("message") as string;
+
+    const body = `From: ${name} (${email})\n\n${message}`;
+    window.location.href = `mailto:alphakappapsiosu@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    toast.success("Opening your email app to send this to AKPsi.");
+    form.reset();
+    setSubmitting(false);
   };
 
   return (

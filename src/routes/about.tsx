@@ -448,7 +448,7 @@ function About() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { value: 500, suffix: "+", label: "Alumni" },
-            { value: 100, suffix: "+", label: "Members" },
+            { value: 75, suffix: "+", label: "Members" },
             { value: 20,  suffix: "+", label: "Industries" },
             { value: 10,  suffix: "+", label: "Majors" },
           ].map((item) => (
@@ -573,11 +573,11 @@ function About() {
           <div className="mt-16 space-y-6 max-w-3xl">
             {[
               { year: "1904", text: "Alpha Kappa Psi was founded at NYU and became the first professional business fraternity in the United States." },
-              { year: "1922", text: "Mu Chapter chartered at The Ohio State University." },
+              { year: "1922", text: "Mu Chapter originally chartered at The Ohio State University." },
               { year: "1976", text: "Chapter becomes co-educational, opening membership to all genders." },
               { year: "2010", text: "Mu Chapter recognized with the national Chapter of Excellence award." },
-              { year: "2022", text: "Centennial celebration marked 100 years of brotherhood at OSU." },
-              { year: "Today", text: "75+ active brothers and a 3,500+ alumni network spanning Fortune 500s, top consulting firms, and bulge-bracket banks." },
+              { year: "2025", text: "Mu Chapter rechartered at The Ohio State University, beginning a new era for the brotherhood." },
+              { year: "Today", text: "75+ active brothers and a growing alumni network spanning Fortune 500s, top consulting firms, and bulge-bracket banks." },
             ].map((t) => (
               <div key={t.year} className="flex flex-col gap-3 border-b border-border pb-6">
                 <div className="text-xl font-semibold text-foreground">{t.year}</div>

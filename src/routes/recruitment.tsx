@@ -9,7 +9,6 @@ import { Textarea } from "@/components/ui/textarea";
 const schedule = [
   { title: "Applications open", detail: "Recruitment begins at the start of the semester and applications open shortly after." },
   { title: "Meet the brothers", detail: "Learn more about the chapter through a mix of professional and social events." },
-  { title: "Member conversations", detail: "Spend time with brothers across majors and get to know the chapter more personally." },
   { title: "Applications due", detail: "Submit your application before recruitment wraps up for the semester." },
 ];
 
@@ -18,7 +17,7 @@ const faqs = [
   { q: "How much time does recruitment take?", a: "Recruitment usually lasts about two weeks. Active membership usually takes around two to four hours each week." },
   { q: "What does it cost?", a: "Dues cover national fees, chapter operations, and events. Payment support is available if needed." },
   { q: "Can I belong to other organizations?", a: "Yes. Many brothers are also in clubs, academic programs, and athletics. AKPsi works alongside other commitments." },
-  { q: "How do I apply?", a: "Fill out the interest form on this page and we will send recruitment updates to your email." },
+  { q: "How do I apply?", a: "Fill out the official application linked on this page. You can also submit the interest form below to get recruitment updates sent to your email in the meantime." },
 ];
 
 export const Route = createFileRoute("/recruitment")({
@@ -40,6 +39,32 @@ export function Recruitment() {
     return () => clearTimeout(id);
   }, []);
 
+  const onInterestSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const firstName = data.get("firstName") as string;
+    const lastName = data.get("lastName") as string;
+    const email = data.get("email") as string;
+    const major = data.get("major") as string;
+    const year = data.get("year") as string;
+    const why = data.get("why") as string;
+
+    const subject = `Recruitment interest: ${firstName} ${lastName}`;
+    const body = [
+      `Name: ${firstName} ${lastName}`,
+      `Email: ${email}`,
+      `Major: ${major || "—"}`,
+      `Year: ${year || "—"}`,
+      why ? `Why AKPsi: ${why}` : null,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    window.location.href = `mailto:alphakappapsiosu@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    form.reset();
+  };
+
   return (
     <main className="min-h-screen bg-background text-foreground rush-page">
 
@@ -54,13 +79,6 @@ export function Recruitment() {
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center gap-8 px-6">
 
-          {/* Eyebrow */}
-          <span
-            className="rush-fade-up rush-delay-0 text-[11px] font-semibold uppercase tracking-[0.35em]"
-            style={{ color: "rgba(255,255,255,0.35)" }}
-          >
-            Recruitment at Mu Chapter
-          </span>
 
           {/* Headline */}
           <h1
@@ -83,7 +101,9 @@ export function Recruitment() {
           {/* CTAs */}
           <div className="rush-fade-up rush-delay-4 flex flex-wrap justify-center gap-3 mt-2">
             <a
-              href="#interest-form"
+              href="https://forms.gle/GubbRonA7W2D899a9"
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-white text-black px-8 py-3 text-sm font-bold uppercase tracking-wide transition-opacity hover:opacity-80"
             >
               Apply now
@@ -119,11 +139,19 @@ export function Recruitment() {
                 <p><strong>What you get:</strong></p>
                 <p>Recruitment schedules, event locations, application reminders, and updates from the chapter.</p>
               </div>
+              <a
+                href="https://forms.gle/GubbRonA7W2D899a9"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary text-background px-6 py-3 text-sm font-bold uppercase tracking-wide transition hover:opacity-85"
+              >
+                Ready now? Go to the application →
+              </a>
             </div>
           </Reveal>
 
           <form
-            onSubmit={(e: React.FormEvent) => e.preventDefault()}
+            onSubmit={onInterestSubmit}
             className="rounded-3xl border border-border bg-card p-10 space-y-4"
           >
             <Input required name="firstName" placeholder="First name"           className="h-12 rounded-xl" />
