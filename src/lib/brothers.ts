@@ -82,7 +82,7 @@ export const brothers: Brother[] = [
   { id: "thomas-schwartz", name: "Thomas Schwartz", major: "Accounting", pcClass: "Beta", role: "Director of New Member Education", hometown: "Boston, MA", linkedin: "https://www.linkedin.com/in/thomas-schwartz-9550261b0/" },
   { id: "tanush-shankar", name: "Tanush Shankar", major: "Finance & Operations Management", pcClass: "Gamma", hometown: "Lewis Center, OH", linkedin: "https://www.linkedin.com/in/tanush-shankar/" },
   { id: "ryan-shelby", name: "Ryan Shelby", major: "Accounting", pcClass: "Alpha", hometown: "Park Ridge, IL", linkedin: "https://www.linkedin.com/in/ryan-shelby-8b2a16206/" },
-  { id: "sana-shine", name: "Sana Shine", major: "Operations Management", pcClass: "Alpha", hometown: "Dallas, TX", linkedin: "https://www.linkedin.com/in/sana-shine/" },
+  { id: "sana-shine", name: "Sana Shine", major: "Operations Management", pcClass: "Alpha", role: "Director of Recruitment", hometown: "Dallas, TX", linkedin: "https://www.linkedin.com/in/sana-shine/" },
   { id: "shreya-singh", name: "Shreya Singh", major: "Accounting", pcClass: "Beta", hometown: "Oklahoma City, OK", linkedin: "https://www.linkedin.com/in/shreyasingh0/" },
   { id: "charlie-slate", name: "Charlie Slate", major: "Marketing", pcClass: "Gamma", hometown: "Boston, MA", linkedin: "https://www.linkedin.com/in/charlesmslate/" },
   { id: "natalie-slezak", name: "Natalie Slezak", major: "Accounting", pcClass: "Beta", role: "Director of Fundraising", hometown: "North East, MD", linkedin: "https://www.linkedin.com/in/natalie-slezak-50a212396/" },

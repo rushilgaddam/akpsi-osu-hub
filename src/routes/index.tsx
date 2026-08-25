@@ -123,12 +123,12 @@ function Home() {
         </div>
       </section>
 
-      <section className="container-page grid gap-12 py-24 lg:grid-cols-[0.95fr_1.05fr] items-center">
-        <div className="overflow-hidden rounded-3xl bg-muted">
+      <section className="container-page grid gap-12 py-24 lg:grid-cols-[0.7fr_1.3fr] items-center">
+        <div className="overflow-hidden rounded-3xl bg-muted max-w-xs mx-auto lg:mx-0">
           <img
             src={brotherhoodImg}
             alt="Mu Chapter president portrait"
-            className="h-full w-full object-cover min-h-[420px]"
+            className="h-full w-full object-cover aspect-[4/5]"
             loading="lazy"
             width={1600}
             height={1100}

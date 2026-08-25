@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Clock3 } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
+import { brothers } from "@/lib/brothers";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
 import profImg from "@/assets/akpsi2.jpg";
@@ -448,7 +449,7 @@ function About() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { value: 500, suffix: "+", label: "Alumni" },
-            { value: 75, suffix: "+", label: "Members" },
+            { value: brothers.length, suffix: "+", label: "Members" },
             { value: 20,  suffix: "+", label: "Industries" },
             { value: 10,  suffix: "+", label: "Majors" },
           ].map((item) => (
@@ -577,7 +578,7 @@ function About() {
               { year: "1976", text: "Chapter becomes co-educational, opening membership to all genders." },
               { year: "2010", text: "Mu Chapter recognized with the national Chapter of Excellence award." },
               { year: "2025", text: "Mu Chapter rechartered at The Ohio State University, beginning a new era for the brotherhood." },
-              { year: "Today", text: "75+ active brothers and a growing alumni network spanning Fortune 500s, top consulting firms, and bulge-bracket banks." },
+              { year: "Today", text: `${brothers.length}+ active brothers and a growing alumni network spanning Fortune 500s, top consulting firms, and bulge-bracket banks.` },
             ].map((t) => (
               <div key={t.year} className="flex flex-col gap-3 border-b border-border pb-6">
                 <div className="text-xl font-semibold text-foreground">{t.year}</div>

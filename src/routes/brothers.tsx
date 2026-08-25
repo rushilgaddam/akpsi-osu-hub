@@ -15,7 +15,7 @@ export const Route = createFileRoute("/brothers")({
       { title: "Brothers · Alpha Kappa Psi Ohio State" },
       { name: "description", content: "Meet the active brothers of Mu Chapter and learn about their majors, PC classes, industries, and leadership roles." },
       { property: "og:title", content: "Brothers · AKPsi Ohio State" },
-      { property: "og:description", content: "75+ active brothers driving careers across banking, consulting, tech, and more." },
+      { property: "og:description", content: `${brothers.length}+ active brothers driving careers across banking, consulting, tech, and more.` },
     ],
   }),
   component: BrothersPage,
@@ -52,7 +52,7 @@ function BrothersPage() {
             Meet the <span className="italic text-primary">brothers.</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-            75 active brothers across every major. Click any card to learn more.
+            {brothers.length} active brothers across every major. Click any card to learn more.
           </p>
         </Reveal>
       </section>
