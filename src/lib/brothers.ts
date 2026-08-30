@@ -90,7 +90,7 @@ export const brothers: Brother[] = [
   { id: "anna-snyder", name: "Anna Snyder", major: "Finance", pcClass: "Beta", hometown: "Pittsburgh, PA", linkedin: "https://www.linkedin.com/in/anna-snyder-300051354/" },
   { id: "colin-southworth", name: "Colin Southworth", major: "Finance & Accounting", pcClass: "Beta", role: "Director of Philanthropy", hometown: "Cleveland, OH", linkedin: "https://www.linkedin.com/in/colin-southworth/" },
   { id: "carter-spera", name: "Carter Spera", major: "Finance", pcClass: "Gamma", hometown: "Fairfax, VA", linkedin: "https://www.linkedin.com/in/carter-spera" },
-  { id: "samara-stein", name: "Samara Stein", major: "Logistics & Operations", pcClass: "Alpha", hometown: "New Jersey", linkedin: "https://www.linkedin.com/in/samara-stein" },
+  { id: "samara-stein", name: "Samara Stein", major: "Logistics & Operations", pcClass: "Alpha", hometown: "New Jersey", linkedin: "https://www.linkedin.com/in/samarastein/" },
   { id: "shagoon-subudhi", name: "Shagoon Subudhi", major: "Finance", pcClass: "Alpha", hometown: "Fremont, CA", linkedin: "https://www.linkedin.com/in/shagoon-subudhi/" },
   { id: "aleksandar-sudar", name: "Aleksandar Sudar", major: "Marketing", pcClass: "Gamma", hometown: "Tallmadge, OH", linkedin: "https://www.linkedin.com/in/aleksandarsudar/" },
   { id: "matthew-thompson", name: "Matthew Thompson", major: "Construction Systems Management", pcClass: "Gamma", hometown: "Brewster, NY", linkedin: "https://www.linkedin.com/in/matthew-thompson1/" },

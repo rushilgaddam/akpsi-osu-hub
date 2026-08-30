@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Outlet, Link, createRootRouteWithContext, useRouter } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
@@ -66,6 +67,7 @@ function RootComponent() {
       </main>
       <Footer />
       <Toaster richColors position="bottom-right" />
+      <Analytics />
     </QueryClientProvider>
   );
 }
