@@ -4,6 +4,8 @@ import brotherhoodImg from "@/assets/mananya.jpeg";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
 
+const CASE_COMP_FORM_URL = "https://forms.gle/nJyWPvEvdA2wgQbu6";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -106,6 +108,20 @@ function Home() {
         <div className="absolute inset-0 z-[3] bg-[radial-gradient(circle_at_50%_42%,transparent_0%,rgba(0,0,0,0.08)_36%,rgba(0,0,0,0.48)_100%)]" />
 
         <div className="relative z-10 flex min-h-[118vh] flex-col items-center justify-center px-6 pb-28 text-center">
+          <a
+            href={CASE_COMP_FORM_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/30 bg-black/20 py-1.5 pl-1.5 pr-5 text-sm font-medium backdrop-blur-md transition hover:bg-white/15"
+          >
+            <span className="rounded-full bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-black">
+              New
+            </span>
+            AMEND Case Competition
+            <span className="hidden sm:inline">· Register your team</span>
+            <span aria-hidden>→</span>
+          </a>
+
           <h1 className="font-display text-[clamp(5.5rem,16vw,13rem)] leading-none tracking-tight drop-shadow-2xl">
             AKΨ
           </h1>
