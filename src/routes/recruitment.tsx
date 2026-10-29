@@ -9,6 +9,9 @@ import { Textarea } from "@/components/ui/textarea";
 
 const AKPSI_EMAIL = "alphakappapsiosu@gmail.com";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzepyydk";
+const CASE_COMP_FORM_URL = "https://forms.gle/nJyWPvEvdA2wgQbu6";
+const CASE_COMP_EMBED_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSdSHKrl-GFoMv7iBJqReMUjjF8d7THoOTNHBBDeuPPFaGeJrA/viewform?embedded=true";
 
 const schedule = [
   { title: "Applications open", detail: "Applications are open now — apply using the link above.", confirmed: true },
@@ -135,12 +138,10 @@ export function Recruitment() {
           {/* CTAs */}
           <div className="rush-fade-up rush-delay-4 flex flex-wrap justify-center gap-3 mt-2">
             <a
-              href="https://forms.gle/GubbRonA7W2D899a9"
-              target="_blank"
-              rel="noreferrer"
+              href="#case-competition"
               className="rounded-full bg-white text-black px-8 py-3 text-sm font-bold uppercase tracking-wide transition-opacity hover:opacity-80"
             >
-              Apply now
+              Case competition sign-up
             </a>
             <a
               href="#schedule"
@@ -155,6 +156,44 @@ export function Recruitment() {
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 rush-scroll-hint">
           <div className="w-px h-10 mx-auto" style={{ background: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.25))" }} />
+        </div>
+      </section>
+
+      {/* ── CASE COMPETITION ── */}
+      <section id="case-competition" className="container-page scroll-mt-20 pt-24">
+        <div className="grid gap-10 lg:grid-cols-[1fr_0.95fr] items-start">
+          <Reveal>
+            <div className="rounded-3xl border border-border bg-card p-10">
+              <SectionLabel>Case competition</SectionLabel>
+              <h2 className="mt-4 text-3xl font-semibold">Register your team.</h2>
+              <p className="mt-4 text-base text-foreground/80 leading-relaxed">
+                Sign up for the AKPsi AMEND Case Competition. One person submits on behalf of a team of 4–5.
+              </p>
+              <div className="mt-6 space-y-3 text-sm text-muted-foreground">
+                <p><strong>Nov 16:</strong> Delivery of case · <strong>Nov 20:</strong> Final presentation</p>
+                <p>Registration closes after the first 5 teams sign up.</p>
+              </div>
+              <a
+                href={CASE_COMP_FORM_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary text-background px-6 py-3 text-sm font-bold uppercase tracking-wide transition hover:opacity-85"
+              >
+                Open in a new tab →
+              </a>
+            </div>
+          </Reveal>
+
+          <div className="overflow-hidden rounded-3xl border border-border bg-card">
+            <iframe
+              src={CASE_COMP_EMBED_URL}
+              title="AKPsi AMEND Case Competition Team Sign-Up"
+              className="block h-[640px] w-full"
+              loading="lazy"
+            >
+              Loading…
+            </iframe>
+          </div>
         </div>
       </section>
 
@@ -174,12 +213,10 @@ export function Recruitment() {
                 <p>Recruitment schedules, event locations, application reminders, and updates from the chapter.</p>
               </div>
               <a
-                href="https://forms.gle/GubbRonA7W2D899a9"
-                target="_blank"
-                rel="noreferrer"
+                href="#case-competition"
                 className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary text-background px-6 py-3 text-sm font-bold uppercase tracking-wide transition hover:opacity-85"
               >
-                Ready now? Go to the application →
+                Case competition sign-up →
               </a>
             </div>
           </Reveal>
